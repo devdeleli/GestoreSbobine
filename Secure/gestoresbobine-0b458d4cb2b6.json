@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gestoresbobine",
+  "private_key_id": "0b458d4cb2b683332877572aa112c85d10b7bbe3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC0TISiEDuo775H\nYiD6kGU/YbaEDTl01Vpmka/fDM6qpplEWZzTuZUdXvs0FJlyJieHBpzLyKothpVU\nwwZqx0fPtyp2wwS53XZYJLugxndKtVl1LIdoDiiVSL304z2uX2VHu68aV0PI1nA1\nQhIvFH2FfK8TWhyKNwZQYoyI8vyGOAQWfcl94u6CglklH9ULE32mNSUzgdooMOVx\nevX3vObFF9J6Xth3wJa/NJKXr1AC8sqS1R43wyEmmGRH5QW3XixJ5mWTh+rURJhB\n6LZVGBmCsy5TxPsESibSuN4UH2q18/VeTI4yPkvaT+zFXnkW4ujw5w22KqQVs+vZ\ntrJKd0i9AgMBAAECggEAGcTU8Q/GYx0O0keDZKR2IBKwYhu8wkbLEp1QaF39fLTu\nc28mY7lix02ftCAclUzAOgN3LgYKUpLpbXGpTWIZkKXCbzJszr7JDwyC95XeD2Kv\nfDiGyte5M6rvoVxIIM+4G0JHIsnloYMKiwYcMLfqP8WkBS1MJnH6WEtZgCpQbsM9\nw/5ymwd7OOv1M8lsPWEZfgWGX1fwpGcgbdbkZGzUyH3Qt1IlpvWXuZKXnEF0SW/V\nENxN9rz5YINcf1234/8tfRBtDMCk2s2DKUp39Me+al+DYBqaKMee+SPEm+MhSP2b\nRmxdLBax4CS+qtJQmaKnVncRvrPM+Oeol6af9534uQKBgQDktjFVi+QlohG/djj3\nNq1LDWTsw/Ggx8GAXaNqXDSkx6FUPSvn44pMXNpK3/6CLY/Q4P0lrSS5E0ZSnqJM\nG3rYbHZc39d/AQ4ULClWni/XeWw6ZLaLNvFFspUn1L/cZxnUcII8k5sbdUHyFDRb\ncMGLtOgfXuaGMi/P+Sb7NlBGiQKBgQDJz5jfq4HH3/2k2ROXrxjgL0Z7vcS9kOYY\nw6UWJSZk+m7sdcp9RIsNP2iTcQL6wSpcFjufmy0R2q9QdEDvR9ScQ6gnjax0jwUF\nYNeMSLmO3dSBajdPOGaZbhECyjFv+zWY5y+m1NFBhZhqHhkxg03WvlTr36plrlAv\n+/DaJO2jlQKBgGNjyYyjfkHcbFoHxjmoSSaUa4d4n0h/hleCWcGe0EHLfxBchPgA\nqdkFgNeI/9ESe60KGPiGha7n8Wd2CJGKX5gtikJSBBPtIXEiv9QkaiX5Xk8B9VIK\nTk87jBYDHl1pcJAhVHd+rakBC+dnYFlcZr+PnlADraojpSN74rTIpZoBAoGAT4Yn\nppPt2zZPvALyboZIFidq7d30xgJwOXf2+MgA3i+1QCaWeVBmPv0ql1ckJm2x5IG6\nUwWR+AQlq110LRYwGLesbpGsUG3/O4RSy+voevy8/ZY+X1BJVdKCj4fffVIPZ8ZK\nB8K7Bse/LKnZoaItLR7pVd1YRyMuZAoyebOtlRUCgYEA4PAnkoVlEi/R37xzKYfl\nGd+wOcQ0pg4A3yWX3I0DaMIDsFbyP43usLnuyhKryailozzeEfjcrS6Oc544dHcQ\nHClU093Q057PxGdaS+cXCB0gnQ476lPfS2EkCiy6lmaYTFDCMvufEPDwVfOorxTL\nGd/qYBOrNAYJRjvMpD+kWvc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "upload-sbobine@gestoresbobine.iam.gserviceaccount.com",
+  "client_id": "115593277654608346792",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/upload-sbobine%40gestoresbobine.iam.gserviceaccount.com"
+}
