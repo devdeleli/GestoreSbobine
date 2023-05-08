@@ -15,6 +15,12 @@ def center_window(window):
     y = (window.winfo_screenheight() // 2) - (height // 2)
     window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
 
+def UploadAnatomia():
+    print("ok")
+
+def UploadFisiologia():
+    print("OK")
+
 
 # Google Drive API credentials file path
 creds_path = './Secure/gestoresbobine-0b458d4cb2b6.json'
@@ -94,6 +100,19 @@ def main():
     # Add your widgets here
     btn_upload = Button(root, text="Upload PDF to Google Drive", command=upload_pdf_to_drive)
     btn_upload.pack(pady=20)
+
+    img1 = ImageTk.PhotoImage(Image.open("./Media/button1.png"))
+    button1 = Button(frame, image=img1, text="Button 1", compound="bottom", command=button1_click, bd=0,
+                     highlightthickness=0)
+    button1.image = img1
+    button1.pack(side="left", padx=10, pady=10)
+
+    # create the second button
+    img2 = ImageTk.PhotoImage(Image.open("./Media/button2.png"))
+    button2 = Button(frame, image=img2, text="Button 2", compound="bottom", command=button2_click, bd=0,
+                     highlightthickness=0)
+    button2.image = img2
+    button2.pack(side="left", padx=10, pady=10)
 
 
 # Set interval
