@@ -1,68 +1,12 @@
 from tkinter import *
 from PIL import Image, ImageTk
-from google.oauth2 import service_account
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from googleapiclient.http import MediaFileUpload
 from tkinter import filedialog
-from uploader.UploadDrive import upload_pdf_to_drive
-from datetime import datetime
+from tkcalendar import *
+from uploader.UploadDrive import *
+from uploader.funzioni import *
 import os
 
-def center_window(window):
-    window.update_idletasks()
-    width = window.winfo_width()
-    height = window.winfo_height()
-    x = (window.winfo_screenwidth() // 2) - (width // 2)
-    y = (window.winfo_screenheight() // 2) - (height // 2)
-    window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-
-def UploadAnatomia():
-    print("ok")
-
-def UploadFisiologia():
-    print("OK")
-
 # Define variables
-materia = ''
-data_selezionata = ''
-testo_libero = ''
-file_selezionato = ''
-
-# Define functions
-def set_materia_anatomia():
-    global materia
-    materia = 'anatomia'
-
-def set_materia_fisiologia():
-    global materia
-    materia = 'fisiologia'
-
-def select_file():
-    global file_selezionato
-    filetypes = (('PDF files', '*.pdf'), ('All files', '*.*'))
-    file_path = filedialog.askopenfilename(title='Select a file', filetypes=filetypes)
-    if file_path:
-        file_selezionato = file_path
-
-def invia_sbobina():
-    global data_selezionata, testo_libero, file_selezionato, materia
-    print(f"Materia selezionata: {materia}")
-    print(f"Data selezionata: {data_selezionata}")
-    print(f"Testo libero: {testo_libero}")
-    print(f"File selezionato: {file_selezionato}")
-
-# Google Drive API credentials file path
-creds_path = './Secure/gestoresbobine-0b458d4cb2b6.json'
-
-# Google Drive API v3 scope for file access and modification
-scope = ['https://www.googleapis.com/auth/drive.file']
-
-# Create credentials object from credentials file and scope
-creds = service_account.Credentials.from_service_account_file(creds_path, scopes=scope)
-
-
-# Define function to handle file upload to Google Drive
 
 
 
@@ -95,51 +39,73 @@ def main():
 
     # Execute tkinter
     root = Tk()
+    root.title("Lecture Transcript Upload System")
 
     # Adjust size
     root.geometry("750x500")
     center_window(root)
 
+    # setup top frame
     top_frame = Frame(root)
-    top_frame.pack(side=TOP, pady=20)
+    top_frame.pack(side=TOP, pady=10)
 
-    img = Image.open("./Media/Anatomia.png").resize((50, 50))
-    photo_img_anat = ImageTk.PhotoImage(img)
-    anatomia_button = Button(top_frame, image=photo_img_anat, text='Anatomia', compound='bottom',
-                             command=set_materia_anatomia, width=100, height=100)
-    anatomia_button.pack(side=LEFT, padx=50)
+    # setup image and button for "Anatomia"
+    anatomia_img = Image.open('./Media/Anatomia.png')
+    anatomia_img = anatomia_img.resize((100, 100), Image.ANTIALIAS)
+    anatomia_img = ImageTk.PhotoImage(anatomia_img)
 
-    img = Image.open("./Media/Fisiologia.png").resize((50, 50))
-    photo_img_fisio = ImageTk.PhotoImage(img)
-    fisiologia_button = Button(top_frame, image=photo_img_fisio, text='Fisiologia', compound='bottom',
-                               command=set_materia_fisiologia, width=100, height=100)
-    fisiologia_button.pack(side=LEFT, padx=50)
+    anatomia_button = Button(top_frame, image=anatomia_img, text='Anatomia', compound='bottom', width=100,
+                             command=lambda: set_materia_anatomia())
+    anatomia_button.pack(side=LEFT, padx=10)
 
-    # Create middle frame with date and text inputs
+    # setup image and button for "Fisiologia"
+    fisiologia_img = Image.open('./Media/Fisiologia.png')
+    fisiologia_img = fisiologia_img.resize((100, 100), Image.ANTIALIAS)
+    fisiologia_img = ImageTk.PhotoImage(fisiologia_img)
+
+    fisiologia_button = Button(top_frame, image=fisiologia_img, text='Fisiologia', compound='bottom', width=100,
+                               command=lambda: set_materia_fisiologia())
+    fisiologia_button.pack(side=LEFT, padx=10)
+
+    materia_label= Label(top_frame, text=f'Materia Selezionata: Nessuna')
+    materia_label.pack(side=LEFT, padx=10)
+
+
+
+
+    # setup middle frame
     middle_frame = Frame(root)
-    middle_frame.pack(side=TOP, pady=20)
+    middle_frame.pack(side=TOP, pady=10)
 
-    now = datetime.now()
-    current_date = now.strftime('%d %B')
-    date_label = Label(middle_frame, text=current_date)
-    date_label.pack(side=LEFT, padx=50)
+    # setup date picker using tkcalendar
+    date_label = Label(middle_frame, text='Data:')
+    date_label.pack(side=LEFT, padx=10)
 
-    testo_label = Label(middle_frame, text='Testo Libero:')
-    testo_label.pack(side=LEFT, padx=50)
-    testo_entry = Entry(middle_frame, width=30)
-    testo_entry.pack(side=LEFT)
+    cal = Calendar(middle_frame, selectmode='day', date_pattern='dd/MM/yyyy')
+    cal.pack(side=LEFT)
 
-    # Create bottom frame with file selection and send button
-    bottom_frame = Frame(root)
-    bottom_frame.pack(side=TOP, pady=20)
+    # setup text entry for description
+    description_label = Label(middle_frame, text='Argomento: ')
+    description_label.pack(side=LEFT, padx=10)
 
-    file_button = Button(bottom_frame, text='Seleziona un File', command=select_file)
-    file_button.pack(side=LEFT, padx=50)
+    description_entry = Entry(middle_frame, width=50)
+    description_entry.pack(side=LEFT)
 
-    invia_button = Button(bottom_frame, text='Invia la Sbobina', command=invia_sbobina)
-    invia_button.pack(side=LEFT, padx=50)
+    # setup file selector
+    file_label = Label(root, text='Seleziona il file:')
+    file_label.pack(side=TOP, pady=10)
+
+    file_button = Button(root, text='Scegli il file', command=lambda: choose_file())
+    file_button.pack(side=TOP)
+
+    # setup submit button
+    submit_button = Button(root, text='Invia la Sbobina', command=upload_pdf_to_drive(select_file(), "1QQiyUMkPm3Z-kwBS69zM6DV4svvdWHGU"))
+    submit_button.pack(side=BOTTOM, pady=10)
 
 
+
+    # start main loop
+    root.mainloop()
 
 
 # Set interval

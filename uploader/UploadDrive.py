@@ -7,10 +7,10 @@ from googleapiclient.http import MediaFileUpload
 from tkinter import filedialog
 import os
 
-def upload_pdf_to_drive():
+
+def upload_pdf_to_drive(filepath:str, folder_id:str):
     # Prompt user to select file to upload
-    filepath = filedialog.askopenfilename(initialdir=os.getcwd(), title="Select a PDF file",
-                                          filetypes=(("PDF files", "*.pdf"), ("all files", "*.*")))
+
     if not filepath:
         return
 
