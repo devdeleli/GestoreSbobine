@@ -1,9 +1,9 @@
-from tkinter import *
-from PIL import Image, ImageTk
-from tkinter import filedialog
-from tkcalendar import *
+
 from uploader.UploadDrive import *
+from uploader.UploadDrive import download_CSV_nomi
 from uploader.funzioni import *
+from uploader.funzioni import *
+
 
 import os
 
@@ -86,6 +86,7 @@ def main():
     date_label = Label(middle_frame, text='Data:')
     date_label.pack(side=LEFT, padx=10)
 
+    global data_selezionata
     cal = Calendar(middle_frame, selectmode='day', date_pattern='dd/MM/yyyy')
     cal.pack(side=LEFT)
     data_selezionata = cal.get_date()
@@ -117,7 +118,7 @@ def main():
     file_button.pack(side=RIGHT, padx=10)
 
     # setup submit button
-    submit_button = Button(root, text='Invia la Sbobina', command=upload_pdf_to_drive(file_selezionato, folder_id))
+    submit_button = Button(root, text='Invia la Sbobina', command=lambda: find_primonome(data_selezionata))
     submit_button.pack(side=BOTTOM, pady=10)
 
 

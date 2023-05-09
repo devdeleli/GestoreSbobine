@@ -5,8 +5,44 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from tkinter import filedialog
+import requests
+import csv
+import pandas as pd
 import os
 from __main__ import *
+
+def download_CSV_nomi():
+    url = "https://drive.google.com/uc?export=download&id=1DCfa8WTsaJrx9qSmV88nA2ZeZe8WxUHr"
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        filename = "Base_Nomi.csv"
+        filepath = os.path.join("./TEMP/", filename)
+        with open(filepath, "wb") as f:
+            f.write(response.content)
+            print(f"File {filename} salvato in {filepath}")
+    else:
+        print(f"Errore nella richiesta. Status code: {response.status_code}")
+
+
+def find_primonome(data_selezionata) -> str:
+    df = pd.read_csv("./TEMP/Base_Nomi.csv", sep=";")
+    colonna_data = df.iloc[:, 0]
+    indice_riga = colonna_data[colonna_data == data_selezionata].index.tolist()
+    if indice_riga:
+        primonome = df.iloc[indice_riga[0], 1]
+    else:
+        primonome = "Ciii"  # oppure un valore di default, se preferisci
+    print(primonome)
+    print(data_selezionata)
+    return primonome
+
+def preparazione():
+    download_CSV_nomi()
+    print("Download completato")
+    print(find_primonome())
+
+
 
 
 def upload_pdf_to_drive(filepath:str, folder_id:str):

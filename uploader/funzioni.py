@@ -6,9 +6,7 @@ from uploader.UploadDrive import *
 from uploader.funzioni import *
 import os
 import __main__
-def choose_file():
-    file_path = filedialog.askopenfilename(initialdir='/', title='Scegli un file',
-                                           filetypes=(('PDF files', '*.pdf'), ('all files', '*.*')))
+
 
 
 def center_window(window):
@@ -28,9 +26,10 @@ def set_materia_anatomia(materia,materia_label):
     return materia
 
 
-def on_date_selected(event, cal):
+def on_date_selected(event, cal) -> str:
     data_selezionata = cal.get_date()
     print(data_selezionata)
+    return data_selezionata
 
 
 
