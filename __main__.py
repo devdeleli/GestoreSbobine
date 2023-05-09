@@ -15,14 +15,23 @@ def CopiaSbobi():
     shutil.copy(file_path, "./TEMP/")
     return nome_file
 
-
+numero_entry = ""
 def Rinomina():
+    numero_sbobina = numero_entry.get()
     nome_file = CopiaSbobi()
-    nuovo_nome =
+    nuovo_nome = numero_sbobina
     old_name = "./TEMP/" + nome_file
-    new_name = './TEMP/nuovo_nome.pdf'
+    new_name = "./TEMP/" + nuovo_nome
 
     os.rename(old_name, new_name)
+
+
+def preparazione():
+    CopiaSbobi()
+    Rinomina()
+    SelettoreCartella()
+    RimuoviSbobina()
+
 
 
 # Define variables
@@ -106,20 +115,25 @@ def main():
     image_label.grid(row=0, column=0, padx=10, pady=10, sticky=W)
 
     # setup entries
+    numero_label = Label(table_frame, text='Numero Sbobina:')
+    numero_label.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    numero_entry = Entry(table_frame)
+    numero_entry.grid(row=1, column=1, padx=10, pady=10)
+
     giorno_label = Label(table_frame, text='Giorno Sbobina:')
-    giorno_label.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    giorno_label.grid(row=2, column=0, padx=10, pady=10, sticky=W)
     giorno_entry = Entry(table_frame)
-    giorno_entry.grid(row=1, column=1, padx=10, pady=10)
+    giorno_entry.grid(row=2, column=1, padx=10, pady=10)
 
     mese_label = Label(table_frame, text='Mese Sbobina:')
-    mese_label.grid(row=2, column=0, padx=10, pady=10, sticky=W)
+    mese_label.grid(row=3, column=0, padx=10, pady=10, sticky=W)
     mese_entry = Entry(table_frame)
-    mese_entry.grid(row=2, column=1, padx=10, pady=10)
+    mese_entry.grid(row=3, column=1, padx=10, pady=10)
 
     argomento_label = Label(table_frame, text='Argomento Sbobina:')
-    argomento_label.grid(row=3, column=0, padx=10, pady=10, sticky=W)
+    argomento_label.grid(row=4, column=0, padx=10, pady=10, sticky=W)
     argomento_entry = Entry(table_frame)
-    argomento_entry.grid(row=3, column=1, padx=10, pady=10)
+    argomento_entry.grid(row=4, column=1, padx=10, pady=10)
 
     # setup file selector
     file_label = Label(middle_frame, text='Seleziona il file:')

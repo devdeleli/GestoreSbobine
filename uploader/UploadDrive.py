@@ -32,11 +32,7 @@ def RimuoviSbobina():
 
 
 
-def preparazione():
-    __main__.CopiaSbobi()
-    __main__.Rinomina()
-    SelettoreCartella()
-    RimuoviSbobina()
+
 
 
 
