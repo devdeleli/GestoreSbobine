@@ -4,10 +4,15 @@ from tkinter import filedialog
 from tkcalendar import *
 from uploader.UploadDrive import *
 from uploader.funzioni import *
+
 import os
 
 # Define variables
-
+materia = 'Nessuna'
+data_selezionata = ''
+testo_libero = ''
+file_selezionato = ''
+folder_id = ""
 
 
 # Create the splash screen window
@@ -55,7 +60,7 @@ def main():
     anatomia_img = ImageTk.PhotoImage(anatomia_img)
 
     anatomia_button = Button(top_frame, image=anatomia_img, text='Anatomia', compound='bottom', width=100,
-                             command=lambda: set_materia_anatomia())
+                             command=lambda: set_materia_anatomia(materia,materia_label))
     anatomia_button.pack(side=LEFT, padx=10)
 
     # setup image and button for "Fisiologia"
@@ -64,10 +69,10 @@ def main():
     fisiologia_img = ImageTk.PhotoImage(fisiologia_img)
 
     fisiologia_button = Button(top_frame, image=fisiologia_img, text='Fisiologia', compound='bottom', width=100,
-                               command=lambda: set_materia_fisiologia())
+                               command=lambda: set_materia_fisiologia(materia,materia_label))
     fisiologia_button.pack(side=LEFT, padx=10)
 
-    materia_label= Label(top_frame, text=f'Materia Selezionata: Nessuna')
+    materia_label= Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.pack(side=LEFT, padx=10)
 
 
@@ -83,6 +88,9 @@ def main():
 
     cal = Calendar(middle_frame, selectmode='day', date_pattern='dd/MM/yyyy')
     cal.pack(side=LEFT)
+    data_selezionata = cal.get_date()
+    cal.bind("<<CalendarSelected>>", lambda event: on_date_selected(event, cal))
+    print(data_selezionata)
 
     # setup text entry for description
     description_label = Label(middle_frame, text='Argomento: ')
@@ -95,11 +103,21 @@ def main():
     file_label = Label(root, text='Seleziona il file:')
     file_label.pack(side=TOP, pady=10)
 
-    file_button = Button(root, text='Scegli il file', command=lambda: choose_file())
-    file_button.pack(side=TOP)
+    file_frame = Frame(root)
+    file_frame.pack(side=TOP)
+
+    global filename_var
+    filename_var = StringVar()
+    filename_var.set(file_path)
+
+    file_entry = Entry(file_frame, textvariable=filename_var, width=50)
+    file_entry.pack(side=RIGHT)
+
+    file_button = Button(file_frame, text='Scegli il file', command=lambda: select_file())
+    file_button.pack(side=RIGHT, padx=10)
 
     # setup submit button
-    submit_button = Button(root, text='Invia la Sbobina', command=upload_pdf_to_drive(select_file(), "1QQiyUMkPm3Z-kwBS69zM6DV4svvdWHGU"))
+    submit_button = Button(root, text='Invia la Sbobina', command=upload_pdf_to_drive(file_selezionato, folder_id))
     submit_button.pack(side=BOTTOM, pady=10)
 
 

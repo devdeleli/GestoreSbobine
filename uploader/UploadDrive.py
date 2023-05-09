@@ -6,6 +6,7 @@ from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from tkinter import filedialog
 import os
+from __main__ import *
 
 
 def upload_pdf_to_drive(filepath:str, folder_id:str):

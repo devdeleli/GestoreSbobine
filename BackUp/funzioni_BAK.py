@@ -44,13 +44,11 @@ def set_materia_fisiologia(materia,materia_label):
 global file_path
 file_path = ""
 
-def select_file():
+def select_file() -> str:
     filetypes = (('PDF files', '*.pdf'), ('All files', '*.*'))
     file_path = filedialog.askopenfilename(title='Select a file', filetypes=filetypes)
-    if file_path:
-        __main__.filename_var.set(file_path)
+    file_path = __main__.filename_var
     return file_path
-
 
 
 
