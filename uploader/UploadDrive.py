@@ -25,16 +25,16 @@ def download_CSV_nomi():
         print(f"Errore nella richiesta. Status code: {response.status_code}")
 
 
-def find_primonome(data_selezionata) -> str:
+def find_primonome(dataselezionata) -> str:
     df = pd.read_csv("./TEMP/Base_Nomi.csv", sep=";")
     colonna_data = df.iloc[:, 0]
-    indice_riga = colonna_data[colonna_data == data_selezionata].index.tolist()
+    indice_riga = colonna_data[colonna_data == dataselezionata].index.tolist()
     if indice_riga:
         primonome = df.iloc[indice_riga[0], 1]
     else:
-        primonome = "Ciii"  # oppure un valore di default, se preferisci
+        primonome = "ERROR..."  # oppure un valore di default, se preferisci
     print(primonome)
-    print(data_selezionata)
+    print(dataselezionata)
     return primonome
 
 def preparazione():

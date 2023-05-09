@@ -9,7 +9,7 @@ import os
 
 # Define variables
 materia = 'Nessuna'
-data_selezionata = ''
+dataselezionata = ''
 testo_libero = ''
 file_selezionato = ''
 folder_id = ""
@@ -47,7 +47,7 @@ def main():
     root.title("Lecture Transcript Upload System")
 
     # Adjust size
-    root.geometry("750x500")
+    root.geometry("750x550")
     center_window(root)
 
     # setup top frame
@@ -56,7 +56,7 @@ def main():
 
     # setup image and button for "Anatomia"
     anatomia_img = Image.open('./Media/Anatomia.png')
-    anatomia_img = anatomia_img.resize((100, 100), Image.ANTIALIAS)
+    anatomia_img = anatomia_img.resize((100, 100))
     anatomia_img = ImageTk.PhotoImage(anatomia_img)
 
     anatomia_button = Button(top_frame, image=anatomia_img, text='Anatomia', compound='bottom', width=100,
@@ -65,7 +65,7 @@ def main():
 
     # setup image and button for "Fisiologia"
     fisiologia_img = Image.open('./Media/Fisiologia.png')
-    fisiologia_img = fisiologia_img.resize((100, 100), Image.ANTIALIAS)
+    fisiologia_img = fisiologia_img.resize((100, 100))
     fisiologia_img = ImageTk.PhotoImage(fisiologia_img)
 
     fisiologia_button = Button(top_frame, image=fisiologia_img, text='Fisiologia', compound='bottom', width=100,
@@ -86,12 +86,10 @@ def main():
     date_label = Label(middle_frame, text='Data:')
     date_label.pack(side=LEFT, padx=10)
 
-    global data_selezionata
     cal = Calendar(middle_frame, selectmode='day', date_pattern='dd/MM/yyyy')
     cal.pack(side=LEFT)
-    data_selezionata = cal.get_date()
     cal.bind("<<CalendarSelected>>", lambda event: on_date_selected(event, cal))
-    print(data_selezionata)
+
 
     # setup text entry for description
     description_label = Label(middle_frame, text='Argomento: ')
@@ -111,14 +109,21 @@ def main():
     filename_var = StringVar()
     filename_var.set(file_path)
 
-    file_entry = Entry(file_frame, textvariable=filename_var, width=50)
+    file_entry = Entry(file_frame, textvariable=filename_var, width=70)
     file_entry.pack(side=RIGHT)
 
     file_button = Button(file_frame, text='Scegli il file', command=lambda: select_file())
     file_button.pack(side=RIGHT, padx=10)
 
+    # setup entry for sbobina number
+    sbobina_label = Label(root, text='Numero Sbobina:')
+    sbobina_label.pack(side=TOP, pady=10)
+
+    sbobina_entry = Entry(root, width=20)
+    sbobina_entry.pack(side=TOP)
+
     # setup submit button
-    submit_button = Button(root, text='Invia la Sbobina', command=lambda: find_primonome(data_selezionata))
+    submit_button = Button(root, text='Invia la Sbobina', command=lambda: find_primonome(dataselezionata))
     submit_button.pack(side=BOTTOM, pady=10)
 
 

@@ -27,9 +27,14 @@ def set_materia_anatomia(materia,materia_label):
 
 
 def on_date_selected(event, cal) -> str:
-    data_selezionata = cal.get_date()
-    print(data_selezionata)
-    return data_selezionata
+    global dataselezionata
+    dataselezionata = cal.get_date()
+    print(dataselezionata)
+    return dataselezionata
+
+
+def validate_input(new_value):
+    return new_value.isnumeric() or new_value == ""
 
 
 
