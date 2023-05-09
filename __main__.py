@@ -1,11 +1,29 @@
 
 from uploader.UploadDrive import *
-from uploader.UploadDrive import download_CSV_nomi
 from uploader.funzioni import *
 from uploader.funzioni import *
 
 
 import os
+
+global nome_file
+
+def CopiaSbobi():
+    print("CopiaSbobi")
+    file_path = filename_var.get()
+    nome_file = os.path.basename(file_path)
+    shutil.copy(file_path, "./TEMP/")
+    return nome_file
+
+
+def Rinomina():
+    nome_file = CopiaSbobi()
+    nuovo_nome =
+    old_name = "./TEMP/" + nome_file
+    new_name = './TEMP/nuovo_nome.pdf'
+
+    os.rename(old_name, new_name)
+
 
 # Define variables
 materia = 'Nessuna'
@@ -75,34 +93,39 @@ def main():
     materia_label= Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.pack(side=LEFT, padx=10)
 
-
-
-
     # setup middle frame
     middle_frame = Frame(root)
     middle_frame.pack(side=TOP, pady=10)
 
-    # setup date picker using tkcalendar
-    date_label = Label(middle_frame, text='Data:')
-    date_label.pack(side=LEFT, padx=10)
+    # setup table
+    table_frame = Frame(middle_frame)
+    table_frame.pack(side=TOP)
 
-    cal = Calendar(middle_frame, selectmode='day', date_pattern='dd/MM/yyyy')
-    cal.pack(side=LEFT)
-    cal.bind("<<CalendarSelected>>", lambda event: on_date_selected(event, cal))
+    # setup image
+    image_label = Label(table_frame, image= None)
+    image_label.grid(row=0, column=0, padx=10, pady=10, sticky=W)
 
+    # setup entries
+    giorno_label = Label(table_frame, text='Giorno Sbobina:')
+    giorno_label.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    giorno_entry = Entry(table_frame)
+    giorno_entry.grid(row=1, column=1, padx=10, pady=10)
 
-    # setup text entry for description
-    description_label = Label(middle_frame, text='Argomento: ')
-    description_label.pack(side=LEFT, padx=10)
+    mese_label = Label(table_frame, text='Mese Sbobina:')
+    mese_label.grid(row=2, column=0, padx=10, pady=10, sticky=W)
+    mese_entry = Entry(table_frame)
+    mese_entry.grid(row=2, column=1, padx=10, pady=10)
 
-    description_entry = Entry(middle_frame, width=50)
-    description_entry.pack(side=LEFT)
+    argomento_label = Label(table_frame, text='Argomento Sbobina:')
+    argomento_label.grid(row=3, column=0, padx=10, pady=10, sticky=W)
+    argomento_entry = Entry(table_frame)
+    argomento_entry.grid(row=3, column=1, padx=10, pady=10)
 
     # setup file selector
-    file_label = Label(root, text='Seleziona il file:')
+    file_label = Label(middle_frame, text='Seleziona il file:')
     file_label.pack(side=TOP, pady=10)
 
-    file_frame = Frame(root)
+    file_frame = Frame(middle_frame)
     file_frame.pack(side=TOP)
 
     global filename_var
@@ -115,18 +138,9 @@ def main():
     file_button = Button(file_frame, text='Scegli il file', command=lambda: select_file())
     file_button.pack(side=RIGHT, padx=10)
 
-    # setup entry for sbobina number
-    sbobina_label = Label(root, text='Numero Sbobina:')
-    sbobina_label.pack(side=TOP, pady=10)
-
-    sbobina_entry = Entry(root, width=20)
-    sbobina_entry.pack(side=TOP)
-
     # setup submit button
-    submit_button = Button(root, text='Invia la Sbobina', command=lambda: find_primonome(dataselezionata))
-    submit_button.pack(side=BOTTOM, pady=10)
-
-
+    submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione())
+    submit_button.pack(side=TOP, pady=10)
 
     # start main loop
     root.mainloop()

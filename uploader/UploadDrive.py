@@ -5,42 +5,38 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from tkinter import filedialog
+import shutil
 import requests
 import csv
 import pandas as pd
 import os
+
+import __main__
 from __main__ import *
 
-def download_CSV_nomi():
-    url = "https://drive.google.com/uc?export=download&id=1DCfa8WTsaJrx9qSmV88nA2ZeZe8WxUHr"
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        filename = "Base_Nomi.csv"
-        filepath = os.path.join("./TEMP/", filename)
-        with open(filepath, "wb") as f:
-            f.write(response.content)
-            print(f"File {filename} salvato in {filepath}")
-    else:
-        print(f"Errore nella richiesta. Status code: {response.status_code}")
 
 
-def find_primonome(dataselezionata) -> str:
-    df = pd.read_csv("./TEMP/Base_Nomi.csv", sep=";")
-    colonna_data = df.iloc[:, 0]
-    indice_riga = colonna_data[colonna_data == dataselezionata].index.tolist()
-    if indice_riga:
-        primonome = df.iloc[indice_riga[0], 1]
-    else:
-        primonome = "ERROR..."  # oppure un valore di default, se preferisci
-    print(primonome)
-    print(dataselezionata)
-    return primonome
+
+def Rinomina():
+    print("Rinomina")
+
+
+def SelettoreCartella():
+    print("SelettoreCartella")
+
+
+def RimuoviSbobina():
+    print("RimuoviSbobina")
+
+
+
+
 
 def preparazione():
-    download_CSV_nomi()
-    print("Download completato")
-    print(find_primonome())
+    __main__.CopiaSbobi()
+    __main__.Rinomina()
+    SelettoreCartella()
+    RimuoviSbobina()
 
 
 
