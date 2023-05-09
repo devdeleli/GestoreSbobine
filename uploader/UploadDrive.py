@@ -1,3 +1,4 @@
+import time
 from tkinter import *
 from PIL import Image, ImageTk
 from google.oauth2 import service_account
@@ -21,10 +22,6 @@ def Rinomina():
     print("Rinomina")
 
 
-def SelettoreCartella():
-    print("SelettoreCartella")
-
-
 def RimuoviSbobina():
     print("RimuoviSbobina")
 
@@ -32,8 +29,21 @@ def RimuoviSbobina():
 
 
 
+def preparazione():
+    __main__.CopiaSbobi()
+    time.sleep(5)
+    upload_pdf_to_drive("./TEMP/1.11 - 1.pdf", "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl")
+    __main__.RimuoviSbobina(__main__.nuovo_nome)
 
-
+def SelettoreCartella(materia:str):
+    folder_id = ""
+    if materia == "Anatomia":
+        folder_id = "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl"
+    elif materia == "Fisiologia":
+        folder_id = "1_XqHRTtsEF2oYYesdH4lIItCp5J-scY7"
+    else:
+        print("ERROR!!!")
+    return folder_id
 
 
 
@@ -42,9 +52,6 @@ def upload_pdf_to_drive(filepath:str, folder_id:str):
 
     if not filepath:
         return
-
-    # Set the folder ID of the destination folder on Google Drive
-    folder_id = '1QQiyUMkPm3Z-kwBS69zM6DV4svvdWHGU'
 
     # Create the Google Drive API client object
     service = build('drive', 'v3', credentials=creds)

@@ -1,4 +1,4 @@
-
+import __main__
 from uploader.UploadDrive import *
 from uploader.funzioni import *
 from uploader.funzioni import *
@@ -16,21 +16,34 @@ def CopiaSbobi():
     return nome_file
 
 numero_entry = ""
-def Rinomina():
+giorno_entry = ""
+mese_entry = ""
+argomento_entry = ""
+nuovo_nome = ""
+
+
+def Rinomina() -> str:
     numero_sbobina = numero_entry.get()
+    giorno_sbobina = giorno_entry.get()
+    mese_sbobina = mese_entry.get()
+    mese_sbobina = mese_sbobina.title()
+    argomento_sbobina = argomento_entry.get()
+    argomento_maiusc = argomento_sbobina.title()
+    argomento_maiusc = argomento_maiusc.replace(" ", "")
     nome_file = CopiaSbobi()
-    nuovo_nome = numero_sbobina
+    nuovo_nome = numero_sbobina + "." + giorno_sbobina + mese_sbobina + " - " + argomento_maiusc + ".pdf"
     old_name = "./TEMP/" + nome_file
     new_name = "./TEMP/" + nuovo_nome
-
     os.rename(old_name, new_name)
+    return new_name
 
 
-def preparazione():
-    CopiaSbobi()
-    Rinomina()
-    SelettoreCartella()
-    RimuoviSbobina()
+def RimuoviSbobina(nuovo_nome:str):
+    os.remove("./TEMP/" + nuovo_nome)
+
+
+
+
 
 
 
@@ -117,22 +130,22 @@ def main():
     # setup entries
     numero_label = Label(table_frame, text='Numero Sbobina:')
     numero_label.grid(row=1, column=0, padx=10, pady=10, sticky=W)
-    numero_entry = Entry(table_frame)
+    __main__.numero_entry = Entry(table_frame)
     numero_entry.grid(row=1, column=1, padx=10, pady=10)
 
     giorno_label = Label(table_frame, text='Giorno Sbobina:')
     giorno_label.grid(row=2, column=0, padx=10, pady=10, sticky=W)
-    giorno_entry = Entry(table_frame)
+    __main__.giorno_entry = Entry(table_frame)
     giorno_entry.grid(row=2, column=1, padx=10, pady=10)
 
     mese_label = Label(table_frame, text='Mese Sbobina:')
     mese_label.grid(row=3, column=0, padx=10, pady=10, sticky=W)
-    mese_entry = Entry(table_frame)
+    __main__.mese_entry = Entry(table_frame)
     mese_entry.grid(row=3, column=1, padx=10, pady=10)
 
     argomento_label = Label(table_frame, text='Argomento Sbobina:')
     argomento_label.grid(row=4, column=0, padx=10, pady=10, sticky=W)
-    argomento_entry = Entry(table_frame)
+    __main__.argomento_entry = Entry(table_frame)
     argomento_entry.grid(row=4, column=1, padx=10, pady=10)
 
     # setup file selector
