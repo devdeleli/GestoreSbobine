@@ -2,6 +2,9 @@ import time
 from tkinter import *
 from PIL import Image, ImageTk
 from google.oauth2 import service_account
+from google.oauth2.service_account import Credentials
+from google.oauth2 import service_account
+
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
@@ -14,26 +17,17 @@ import os
 
 import __main__
 from __main__ import *
-
-
-
-
-def Rinomina():
-    print("Rinomina")
-
-
-def RimuoviSbobina():
-    print("RimuoviSbobina")
-
-
+from uploader import invio
 
 
 
 def preparazione():
     __main__.CopiaSbobi()
+    __main__.Rinomina()
     time.sleep(5)
-    upload_pdf_to_drive("./TEMP/1.11 - 1.pdf", "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl")
-    __main__.RimuoviSbobina(__main__.nuovo_nome)
+    invio.upload_file(SelettoreCartella(__main__.materia), __main__.file_selezionato, "./Secure/gestoresbobine-0b458d4cb2b6.json")
+    print("FATTO")
+
 
 def SelettoreCartella(materia:str):
     folder_id = ""
@@ -47,27 +41,3 @@ def SelettoreCartella(materia:str):
 
 
 
-def upload_pdf_to_drive(filepath:str, folder_id:str):
-    # Prompt user to select file to upload
-
-    if not filepath:
-        return
-
-    # Create the Google Drive API client object
-    service = build('drive', 'v3', credentials=creds)
-
-    # Set the metadata for the new file
-    file_metadata = {
-        'name': os.path.basename(filepath),
-        'parents': [folder_id],
-        'mimeType': 'application/pdf'
-    }
-
-    # Upload the file to Google Drive
-    try:
-        media = MediaFileUpload(filepath, mimetype='application/pdf')
-        file = service.files().create(body=file_metadata, media_body=media, fields='id').execute()
-        print(f"File ID: {file.get('id')} - '{file.get('name')}' has been uploaded to Google Drive.")
-    except HttpError as error:
-        print(f"An error occurred: {error}")
-        file = None
