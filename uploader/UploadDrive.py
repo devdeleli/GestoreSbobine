@@ -25,7 +25,7 @@ def preparazione():
     __main__.CopiaSbobi()
     __main__.Rinomina()
     time.sleep(5)
-    invio.upload_file("./TEMP/1.11 - 1.pdf", "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl", "./Secure/gestoresbobine-0b458d4cb2b6.json")
+    invio.upload_file("./TEMP/tempy.txt", SelettoreCartella(__main__.materia), "./Secure/gestoresbobine-0b458d4cb2b6.json")
     print("FATTO")
 
 
