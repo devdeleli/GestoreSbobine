@@ -24,7 +24,7 @@ def set_materia(materia:str,materia_label):
     :return:
     '''
     #materia = 'Anatomia'
-    print(materia)
+    print(f"Caricherò la sbobina nella cartella {materia}")
     materia_label.configure(text=f'Materia Selezionata: {materia}')
     return materia
 

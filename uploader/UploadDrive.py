@@ -50,6 +50,7 @@ def select_pdf_file(directory):
     for filename in os.listdir(directory):
         if filename.endswith(".pdf"):
             return os.path.join(directory, filename)
+    print("Il file è stato selezionato ed è pronto per l'invio")
 
 def delete_all_pdf_files(folder_path):
     '''
@@ -59,3 +60,4 @@ def delete_all_pdf_files(folder_path):
     for file_name in os.listdir(folder_path):
         if file_name.endswith('.pdf'):
             os.remove(os.path.join(folder_path, file_name))
+    print("La procedura di trasferimento è stata completata correttamente")

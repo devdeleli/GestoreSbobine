@@ -1,7 +1,11 @@
 import __main__
+import uploader.funzioni
 from uploader.UploadDrive import *
 from uploader.funzioni import *
 import os
+import sys
+from tkinter.scrolledtext import ScrolledText
+
 
 global nome_file
 numero_entry = ""
@@ -41,6 +45,17 @@ img = PhotoImage(file="./Media/Splash.png")
 # Create a label with the image
 splash_label = Label(splash_root, image=img)
 splash_label.pack()
+
+class TextRedirector:
+    def __init__(self, widget, tag="stdout"):
+        self.widget = widget
+        self.tag = tag
+
+    def write(self, str):
+        self.widget.configure(state="normal")
+        self.widget.insert("end", str, (self.tag,))
+        self.widget.configure(state="disabled")
+
 
 
 def main():
@@ -88,10 +103,6 @@ def main():
     table_frame = Frame(middle_frame)
     table_frame.pack(side=TOP)
 
-    # setup image
-    image_label = Label(table_frame, image= None)
-    image_label.grid(row=0, column=0, padx=10, pady=10, sticky=W)
-
     # setup entries
     numero_label = Label(table_frame, text='Numero Sbobina:')
     numero_label.grid(row=1, column=0, padx=10, pady=10, sticky=W)
@@ -133,6 +144,27 @@ def main():
     # setup submit button
     submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione())
     submit_button.pack(side=TOP, pady=10)
+
+    ########################
+
+    # setup bottom frame
+    bottom_frame = Frame(root)
+    bottom_frame.pack(side=BOTTOM, pady=10)
+
+    # setup terminal output
+    output_label = Label(bottom_frame, text='Terminal Output:')
+    output_label.pack(side=TOP, pady=5)
+
+    output_text = ScrolledText(bottom_frame, width=80, height=10)
+    output_text.pack(side=TOP, padx=10, pady=5)
+    output_text.see(END)
+
+
+    # redirect stdout to the Text widget
+    sys.stdout = TextRedirector(output_text, "stdout")
+
+    # redirect stderr to the Text widget
+    sys.stderr = TextRedirector(output_text, "stderr")
 
     # start main loop
     root.mainloop()
