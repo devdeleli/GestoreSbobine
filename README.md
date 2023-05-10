@@ -52,10 +52,10 @@ A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
 ```pip install -r requirements.txt```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato
-3. to be continued...
-
-
-
+3. Nel file **./valori.py** modifica i valori in base alle tue esigenze. N.B.: se hai bisogno di sbobinare più insegnamenti, devi mettere mano al codice...
+4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
+facendo click con il tasto destro su **./__main__.py**;
+5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
 
 ### Generazione del file .exe da distribuire
 
@@ -64,6 +64,10 @@ A questo punto, entriamo nel vivo della configurazione:
 
 
 ## Suggerimenti? Bug? Problemi?
+
+
+## Licenza
+
 
 
 
