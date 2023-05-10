@@ -22,6 +22,7 @@ argomento_entry = ""
 nuovo_nome = ""
 
 
+
 def Rinomina() -> str:
     numero_sbobina = numero_entry.get()
     giorno_sbobina = giorno_entry.get()
@@ -37,6 +38,8 @@ def Rinomina() -> str:
     os.rename(old_name, new_name)
     return new_name
 
+def PassName():
+    return new_name
 
 def RimuoviSbobina(nuovo_nome:str):
     os.remove("./TEMP/" + nuovo_nome)
@@ -48,6 +51,7 @@ def RimuoviSbobina(nuovo_nome:str):
 
 
 # Define variables
+global materia
 materia = 'Nessuna'
 dataselezionata = ''
 testo_libero = ''

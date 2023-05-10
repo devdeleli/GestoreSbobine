@@ -1,18 +1,24 @@
 from google.oauth2.credentials import Credentials
+from google.oauth2 import service_account
 from googleapiclient.errors import HttpError
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 import os
 
-def upload_file(folder_id: str, file_path: str, credentials_path: str):
+def upload_file(file_PTH:str, FLDR_2_UP:str, cred:str):
+    # Prompt user to select file to upload
+    SCOPES = ["https://www.googleapis.com/auth/drive.file"]
+    file_path = file_PTH
+    FOLDER_ID = FLDR_2_UP
+
     # Create the Google Drive API client object
-    credentials = Credentials.from_service_account_file(credentials_path, scopes=['https://www.googleapis.com/auth/drive'])
+    credentials = service_account.Credentials.from_service_account_file(cred, scopes=SCOPES)
     service = build('drive', 'v3', credentials=credentials)
 
     # Set the metadata for the new file
     file_metadata = {
         'name': os.path.basename(file_path),
-        'parents': [folder_id]
+        'parents': [FOLDER_ID]
     }
 
     # Upload the file to Google Drive

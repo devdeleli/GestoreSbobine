@@ -25,11 +25,11 @@ def preparazione():
     __main__.CopiaSbobi()
     __main__.Rinomina()
     time.sleep(5)
-    invio.upload_file(SelettoreCartella(__main__.materia), __main__.file_selezionato, "./Secure/gestoresbobine-0b458d4cb2b6.json")
+    invio.upload_file("./TEMP/1.11 - 1.pdf", "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl", "./Secure/gestoresbobine-0b458d4cb2b6.json")
     print("FATTO")
 
 
-def SelettoreCartella(materia:str):
+def SelettoreCartella(materia:str): #non passa correttiamente la variabile. correggere
     folder_id = ""
     if materia == "Anatomia":
         folder_id = "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl"
