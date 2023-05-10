@@ -5,6 +5,8 @@
 # 2. Apri la cartella in cui vuoi caricare i file
 # 5. Nella barra degli indirizzi, copia l'ID che trovi dopo /folders/
 # 6. Incollalo qui sotto, nel relativo campo
+# Per quanto riguarda la parte IMG: devi caricare le immagini sotto "./Media/" e inserire il nome del file (compresa l'estensione) nel campo IMG
+# ex: Materia1_Img = "./Media/anatomia.jpg"
 
 Materia1_Nome = ""
 Materia1_Img = ""
