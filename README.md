@@ -32,17 +32,21 @@ una cartella di Google Drive condivisa con tutti i membri del corso, nella quale
 e che sia in possesso di un account Google con i permessi di lettura e scrittura su tale cartella.
 Inoltre, è necessario che il responsabile delle sbobine abbia a disposizione un account google personale
 per la genesi della mail di servizio e relative credenziali nel file JSON.
-1. Il responsabile si collega alla propria [Google Cloud Console](https://console.cloud.google.com/)
-2. Crea un nuovo progetto, nominandolo come preferisce. Al termine, lo apre
-3. Nella barra di ricerca, cerca "Google Drive API" e seleziona il primo risultato sotto "Marketplace"
-4. Clicca su "Installa" e poi "Gestisci"
-5. Seleziona sulla sinistra la voce "Credenziali"
-6. In "account di servizio", seleziona "Crea account di servizio"
-7. Inserisci un nome a piacere, modificando, se necessario "ID account" (questo è molto importante, rappresenterà l'indirizzo mail di caricamento) e clicca su "Crea"
-8. Seleziona il ruolo "Project -> Proprietario" e clicca su "Continua"
-9. Seleziona "Fine" in basso per creare l'account
-10. Seleziona la mail appena creata, clicca su "chiave" e poi su "Aggiungi chiave" - "Crea nuova chiave" - JSON
-11. Salva la chiave JSON in una cartella a piacere (per ora).
+1. Il responsabile si collega alla propria [Google Cloud Console](https://console.cloud.google.com/) ;
+2. Crea un nuovo progetto, nominandolo come preferisce. Al termine, lo apre;
+3. Nella barra di ricerca, cerca "Google Drive API" e seleziona il primo risultato sotto "Marketplace";
+4. Clicca su "Installa" e poi "Gestisci";
+5. Seleziona sulla sinistra la voce "Credenziali";
+6. In "account di servizio", seleziona "Crea account di servizio";
+7. Inserisci un nome a piacere, modificando, se necessario "ID account" (questo è molto importante, rappresenterà l'indirizzo mail di caricamento) e clicca su "Crea";
+8. Seleziona il ruolo "Project -> Proprietario" e clicca su "Continua";
+9. Seleziona "Fine" in basso per creare l'account;
+10. Seleziona la mail appena creata, clicca su "chiave" e poi su "Aggiungi chiave" - "Crea nuova chiave" - JSON;
+11. Salva la chiave JSON in una cartella a piacere (per ora);
+12. In ultimo, deve recarsi nella cartella Drive delle sbobine (meglio se nella directory principale, qualora
+ci dovessero essere più sottocartelle per le diverse materie) e condividere la cartella con l'account appena creato,
+semplicemente cliccando su "condivici", inserendo l'indirizzo mail e selezionando "editor" come permessi (deseleziona
+"invia una notifica").
 
 ### Configurazione del software da parte del responsabile delle sbobine
 Come prima cosa, deve importare il presente repository in locale, cliccando su "Code" e poi "Download ZIP".
