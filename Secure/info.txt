@@ -1,1 +1,1 @@
-add JSON credential file
+add JSON credential file and write the name in .gitignore file
