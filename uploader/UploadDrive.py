@@ -38,6 +38,11 @@ def preparazione(SBJ):
 
 
 def SelettoreCartella(subject:str): # <--- lui è il problema
+    '''
+    Questa funzione permette di selezionare la cartella in cui caricare il file
+    :param subject: Indica la materia della sbobina
+    :return:
+    '''
     folder_id = ""
     if subject == data[0]["Materia0_Nome"]:
         folder_id = data[0]["Materia0_Fid"]
