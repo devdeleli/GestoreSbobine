@@ -1,9 +1,11 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import tkinter as tk
 from tkinter import filedialog
 from tkcalendar import *
 from uploader.UploadDrive import *
 from uploader.funzioni import *
+import webbrowser
 import os
 import __main__
 
@@ -26,7 +28,6 @@ def set_materia(materia:str,materia_label):
     #materia = 'Anatomia'
     print(f"Caricherò la sbobina nella cartella {materia}")
     materia_label.configure(text=f'Materia Selezionata: {materia}')
-    return materia
 
 
 global file_path
@@ -75,3 +76,15 @@ def Rinomina():
     print(f"Sto rinominando la sbobina in {nuovo_nome}...")
     os.rename(old_name, new_name)
 
+def apri_finestra():
+    finestra = tk.Toplevel()
+    finestra.title("Info sul Software")
+    finestra.geometry("500x250")
+
+    info_label = Label(finestra, text="Lecture Transcript Online Update System \n "
+                                      "Developed by DEVDELELI: \n "
+                                      "https://www.github.com/devdeleli",
+                       anchor=CENTER, font=("Helvetica", 12))
+    info_label.pack(side=TOP, padx=10, pady=50, anchor="center")
+    info_label.bind("<Button-1>", lambda e:
+                    webbrowser.open_new_tab("https://www.github.com/devdeleli"))

@@ -165,15 +165,20 @@ def main():
     file_button = Button(file_frame, text='Scegli il file', command=lambda: select_file())
     file_button.pack(side=RIGHT, padx=10)
 
+    # setup button frame
+    button_frame = Frame(middle_frame)
+    button_frame.pack(side=TOP, pady=10)
+
     # setup submit button
-    submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione(materia))
-    submit_button.pack(side=TOP, pady=10)
-    #submit_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione(__main__.materia))
+    submit_button.pack(side=LEFT, padx=10)
 
     # setup info button
-    info_button = Button(middle_frame, text='Info sul Software', command=lambda: print("Ciao"))
-    #info_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
-    info_button.pack(side=TOP, pady=10, padx=10)
+    info_button = Button(button_frame, text='Info sul Software', command=lambda: apri_finestra())
+    info_button.pack(side=LEFT, padx=10)
+
+    # position button frame in center
+    button_frame.pack(side=TOP, pady=10, anchor="center")
 
     # setup bottom frame
     bottom_frame = Frame(root)
@@ -189,10 +194,6 @@ def main():
     output_text.pack(side=TOP, padx=10, pady=5)
     output_text.see(END)
 
-    #info_label = Label(bottom_frame, text="Lecture Transcript Online Update System - Developed by DEVDELELI: github.com/devdeleli")
-    #info_label.pack(side=BOTTOM)
-    #info_label.bind("<Button-1>", lambda e:
-                   # webbrowser.open_new_tab("https://www.github.com/devdeleli"))
 
 
     # redirect stdout to the Text widget

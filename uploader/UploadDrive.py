@@ -27,7 +27,6 @@ with open('./Secure/Valori.JSON') as f:
 
 def preparazione(SBJ):
     uploader.funzioni.CopiaSbobi()
-    time.sleep(3)
     uploader.funzioni.Rinomina()
     time.sleep(5)
     invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartella(SBJ), "./Secure/Creds.json")
@@ -37,15 +36,16 @@ def preparazione(SBJ):
     print("La sbobina è stata correttamente caricata")
 
 
-def SelettoreCartella(materia:str): #non passa correttiamente la variabile. correggere
+
+def SelettoreCartella(subject:str): # <--- lui è il problema
     folder_id = ""
-    if materia == data[0]["Materia0_Nome"]:
+    if subject == data[0]["Materia0_Nome"]:
         folder_id = data[0]["Materia0_Fid"]
-    elif materia == data[1]["Materia1_Nome"]:
+    elif subject == data[1]["Materia1_Nome"]:
         folder_id = data[1]["Materia1_Fid"]
-    elif materia == data[2]["Materia2_Nome"]:
+    elif subject == data[2]["Materia2_Nome"]:
         folder_id = data[2]["Materia2_Fid"]
-    elif materia == data[3]["Materia3_Nome"]:
+    elif subject == data[3]["Materia3_Nome"]:
         folder_id = data[3]["Materia3_Fid"]
     else:
         print("ERROR!!!")
