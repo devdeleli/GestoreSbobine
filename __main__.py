@@ -1,4 +1,5 @@
 import __main__
+import uploader.UploadDrive
 from uploader.UploadDrive import *
 from uploader.UploadDrive import preparazione
 from uploader.funzioni import *
@@ -15,6 +16,7 @@ nuovo_nome = ""
 
 
 # Define variables
+
 materia = 'Nessuna'
 dataselezionata = ''
 testo_libero = ''
@@ -112,7 +114,7 @@ def main():
                              command=lambda: set_materia(data[3]["Materia3_Nome"], materia_label))
     materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
 
-    materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
+    materia_label = Label(top_frame, text=f'Materia Selezionata: {__main__.materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
 
     # setup middle frame
@@ -166,7 +168,7 @@ def main():
     button_frame.pack(side=TOP, pady=10)
 
     # setup submit button
-    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione("Fisiologia"))
+    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione(materia_label))
     #Il problema sta qui, non passa correttamente la variabile materia.
     #Se la passo come "Anatomia" o "Fisiologia" ottengo il risultato desiderato
     submit_button.pack(side=LEFT, padx=10)

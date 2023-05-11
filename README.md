@@ -73,7 +73,7 @@ pip install tkcalendar
 ```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
 3. Nella cartella **./Media/** carica le icone in formato PNG riguardanti le materie da sbobinare;
-4. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+4. Rinomina il file **./Secure/ValoriBAK.JSON** in **./Secure/Valori.JSON** e modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
 5. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
@@ -94,8 +94,10 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
     "Materia1_Fid":"NULL"
 }
 ```
-Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, copiare l'ultima parte dell'url. Per esempio, se l'URL è:
-drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
+Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: vedendo il link che si trova
+nella barra di ricerca del browser, estraiamo l'ultima stringa (drive.google.com/drive/folders/{Folder_ID}).
+In pratica, recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, 
+copiare l'ultima parte dell'url. Per esempio, se l'URL è: drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
 
 ### Generazione dei file da distribuire ai colleghi
 
@@ -124,7 +126,14 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 ## Utilizzo
 
 
-## Suggerimenti? Bug? Problemi?
+## Contribuire
+Per contribuire al progetto, è necessario seguire le seguenti istruzioni:
+1. Forkare il progetto;
+2. Creare un branch con il proprio nome;
+3. Effettuare le modifiche;
+4. Creare una pull request.
+5. Attendere la revisione del responsabile.
+6. Se approvata, verrà effettuato il merge.
 
 
 ## Licenza
