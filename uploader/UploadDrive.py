@@ -37,6 +37,7 @@ def preparazione(SBJ):
 
 
 
+
 def SelettoreCartella(subject:str): # <--- lui è il problema
     '''
     Questa funzione permette di selezionare la cartella in cui caricare il file
