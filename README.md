@@ -62,7 +62,7 @@ A questo punto, entriamo nel vivo della configurazione:
 ```pip install -r requirements.txt```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
 3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
-N.B.: se hai bisogno di sbobinare più di 4 insegnamenti, devi mettere mano al codice...
+N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
 4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
 5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
@@ -78,7 +78,7 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
 },
 {
     "Materia1_Nome":"Non Attivo",
-    "Materia1_Img":"./Media/NULL.png",
+    "Materia1_Img":"./Media/None.png",
     "Materia1_Fid":"NULL"
 }
 ```

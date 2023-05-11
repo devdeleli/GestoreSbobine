@@ -11,12 +11,12 @@
   },
   {
     "Materia2_Nome":"Scienze",
-    "Materia2_Img":"./Media/Anatomia.png",
+    "Materia2_Img":"./Media/None.png",
     "Materia2_Fid":"1_XqHRTtsEF2oYYesdH4lIItCp5J-scY7"
   },
   {
-    "Materia3_Nome":"Scienze",
-    "Materia3_Img":"./Media/Anatomia.png",
+    "Materia3_Nome":"Biochimica",
+    "Materia3_Img":"./Media/None.png",
     "Materia3_Fid":"1_XqHRTtsEF2oYYesdH4lIItCp5J-scY7"
   }
 ]

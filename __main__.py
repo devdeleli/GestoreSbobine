@@ -5,6 +5,7 @@ from uploader.funzioni import *
 import sys
 import json
 from tkinter.scrolledtext import ScrolledText
+import webbrowser
 
 global nome_file
 numero_entry = ""
@@ -167,10 +168,18 @@ def main():
     # setup submit button
     submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione(materia))
     submit_button.pack(side=TOP, pady=10)
+    #submit_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+
+    # setup info button
+    info_button = Button(middle_frame, text='Info sul Software', command=lambda: print("Ciao"))
+    #info_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
+    info_button.pack(side=TOP, pady=10, padx=10)
 
     # setup bottom frame
     bottom_frame = Frame(root)
     bottom_frame.pack(side=BOTTOM, pady=10)
+
+    #### Terminal Output ####
 
     # setup terminal output
     output_label = Label(bottom_frame, text='Terminal Output:')
@@ -180,13 +189,17 @@ def main():
     output_text.pack(side=TOP, padx=10, pady=5)
     output_text.see(END)
 
+    #info_label = Label(bottom_frame, text="Lecture Transcript Online Update System - Developed by DEVDELELI: github.com/devdeleli")
+    #info_label.pack(side=BOTTOM)
+    #info_label.bind("<Button-1>", lambda e:
+                   # webbrowser.open_new_tab("https://www.github.com/devdeleli"))
+
 
     # redirect stdout to the Text widget
     sys.stdout = TextRedirector(output_text, "stdout")
 
     # redirect stderr to the Text widget
     sys.stderr = TextRedirector(output_text, "stderr")
-###############################################################
 
 
     # start main loop
