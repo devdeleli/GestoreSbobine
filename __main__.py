@@ -166,7 +166,7 @@ def main():
     button_frame.pack(side=TOP, pady=10)
 
     # setup submit button
-    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione(__main__.materia))
+    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione("Fisiologia"))
     #Il problema sta qui, non passa correttamente la variabile materia.
     #Se la passo come "Anatomia" o "Fisiologia" ottengo il risultato desiderato
     submit_button.pack(side=LEFT, padx=10)
