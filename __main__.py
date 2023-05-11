@@ -24,6 +24,9 @@ folder_id = ""
 
 
 ##########
+with open('./Secure/Valori.JSON') as f:
+    data = json.load(f)
+##########
 
 
 # Create the splash screen window
@@ -82,7 +85,7 @@ def main():
     Materia1 = ImageTk.PhotoImage(Materia1)
 
     Materia1_button = Button(top_frame, image=Materia1, text='Anatomia', compound='bottom', width=100,
-                             command=lambda: set_materia("Anatomia",materia_label))
+                             command=lambda: set_materia("Anatomia", materia_label))
     Materia1_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia2"
@@ -91,7 +94,7 @@ def main():
     Materia2 = ImageTk.PhotoImage(Materia2)
 
     Materia2_button = Button(top_frame, image=Materia2, text='Fisiologia', compound='bottom', width=100,
-                             command=lambda: set_materia("Fisiologia",materia_label))
+                             command=lambda: set_materia("Fisiologia", materia_label))
     Materia2_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia3"
@@ -112,7 +115,7 @@ def main():
                              command=lambda: set_materia("Biologia", materia_label))
     Materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
 
-    materia_label= Label(top_frame, text=f'Materia Selezionata: {materia}')
+    materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
 
     # setup middle frame
