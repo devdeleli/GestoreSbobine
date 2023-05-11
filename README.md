@@ -60,7 +60,7 @@ Ora, aprite Visual Studio Code e cliccate su "File" - "Apri cartella" e selezion
 A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
 ```pip install -r requirements.txt```
-2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato
+2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.json**;
 3. Nel file **./valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: se hai bisogno di sbobinare più insegnamenti, devi mettere mano al codice...
 4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 

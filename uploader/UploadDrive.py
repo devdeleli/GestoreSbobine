@@ -27,7 +27,7 @@ def preparazione():
     time.sleep(3)
     uploader.funzioni.Rinomina()
     time.sleep(5)
-    invio.upload_file(select_pdf_file("./TEMP/"), "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl", "./Secure/gestoresbobine-0b458d4cb2b6.json")
+    invio.upload_file(select_pdf_file("./TEMP/"), "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl", "./Secure/Creds.json")
     time.sleep(5)
     delete_all_pdf_files("./TEMP/")
     time.sleep(3)
