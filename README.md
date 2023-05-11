@@ -135,3 +135,6 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 ## To - Do
 - [ ] Inserimento loading image...
 - [ ] Auto acquisizione del Fid dal link
+- [ ] Inserimento pagina SETTING
+- [ ] Caricamento Creds.JSON ed auto acquisizione di indirizzo mail di servizio
+- [ ] Modifica di cartelle dalla pagina SETTING
