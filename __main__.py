@@ -165,7 +165,7 @@ def main():
     file_button.pack(side=RIGHT, padx=10)
 
     # setup submit button
-    submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione())
+    submit_button = Button(middle_frame, text='Invia la Sbobina', command=lambda: preparazione(materia))
     submit_button.pack(side=TOP, pady=10)
 
     # setup bottom frame

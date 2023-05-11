@@ -77,7 +77,7 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
     "Materia0_Fid":"inserisci l'id della cartella drive",
 },
 {
-    "Materia1_Nome":"NULL",
+    "Materia1_Nome":"Non Attivo",
     "Materia1_Img":"./Media/NULL.png",
     "Materia1_Fid":"NULL"
 }

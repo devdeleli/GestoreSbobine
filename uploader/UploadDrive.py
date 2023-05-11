@@ -25,12 +25,12 @@ with open('./Secure/Valori.JSON') as f:
     data = json.load(f)
 
 
-def preparazione():
+def preparazione(SBJ):
     uploader.funzioni.CopiaSbobi()
     time.sleep(3)
     uploader.funzioni.Rinomina()
     time.sleep(5)
-    invio.upload_file(select_pdf_file("./TEMP/"), "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl", "./Secure/Creds.json")
+    invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartella(SBJ), "./Secure/Creds.json")
     time.sleep(5)
     delete_all_pdf_files("./TEMP/")
     time.sleep(3)
