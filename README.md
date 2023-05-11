@@ -103,7 +103,7 @@ Le strade sono principalmente due:
 1. Distribuzione del sorgente modificato;
 2. Compilazione in eseguibile.
 
-La prima strada, sebbene garantisca il corretto funzionamento nella totalità dei casi, risulta più complessa, in quanto è necessario installare Python e relative dipendenze del software in ogni dispositivo su cui verrà utilizzato il GestoreSbobine. Cercheremo quindi di generare un eseguibile per le piattaforme, per semplificarne l'utilizzo. Ad ogni modo, verrà trattato alla fine come configurare i singoli dispositivi per l'utilizzo diretto del sorgente.
+La prima strada, sebbene garantisca il corretto funzionamento nella totalità dei casi, risulta più complessa, in quanto è necessario installare Python e relative dipendenze del software in ogni dispositivo su cui verrà utilizzato il GestoreSbobine. Cercheremo quindi di generare un eseguibile per le piattaforme, per semplificarne l'utilizzo. Ad ogni modo, verrà trattato alla fine come configurare i singoli dispositivi per l'utilizzo diretto del sorgente (in pratica, i passaggi **1** e **3** della configurazione).
 
 #### Piattaforma Windows 
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
