@@ -117,7 +117,7 @@ def main():
 
     materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
-
+test
     # setup middle frame
     middle_frame = Frame(root)
     middle_frame.pack(side=TOP, pady=10)
