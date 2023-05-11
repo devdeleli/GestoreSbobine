@@ -68,7 +68,7 @@ def main():
     root = Tk()
     root.title("Lecture Transcript Upload System")
 
-    # Adjust Size
+    # Adjust size
     root.geometry("750x700")
     center_window(root)
 
