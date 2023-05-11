@@ -22,7 +22,7 @@ def upload_file():
     file_path = filedialog.askopenfilename()
 
     # Create the Google Drive API client object
-    credentials = service_account.Credentials.from_service_account_file('Secure/Creds.json', scopes=SCOPES)
+    credentials = service_account.Credentials.from_service_account_file('Creds.json', scopes=SCOPES)
     service = build('drive', 'v3', credentials=credentials)
 
     # Set the metadata for the new file
