@@ -72,11 +72,12 @@ pip install Requests
 pip install tkcalendar
 ```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
-3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+3. Nella cartella **./Media/** carica le icone in formato PNG riguardanti le materie da sbobinare;
+4. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
-4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
+5. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
-5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
+6. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
 
 #### Modifica del file Valori.JSON
 Puoi modificare i valori come segue, avendo cura, qualora non dovessi utilizzare tutti i pulsanti, di
