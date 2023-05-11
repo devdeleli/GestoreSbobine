@@ -72,11 +72,12 @@ pip install Requests
 pip install tkcalendar
 ```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
-3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+3. Nella cartella **./Media/** carica le icone in formato PNG riguardanti le materie da sbobinare;
+4. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
-4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
+5. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
-5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
+6. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
 
 #### Modifica del file Valori.JSON
 Puoi modificare i valori come segue, avendo cura, qualora non dovessi utilizzare tutti i pulsanti, di
@@ -93,8 +94,17 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
     "Materia1_Fid":"NULL"
 }
 ```
+Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, copiare l'ultima parte dell'url. Per esempio, se l'URL è:
+drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
 
 ### Generazione dei file da distribuire ai colleghi
+
+Le strade sono principalmente due:
+1. Distribuzione del sorgente modificato;
+2. Compilazione in eseguibile.
+
+La prima strada, sebbene garantisca il corretto funzionamento nella totalità dei casi, risulta più complessa, in quanto è necessario installare Python e relative dipendenze del software in ogni dispositivo su cui verrà utilizzato il GestoreSbobine. Cercheremo quindi di generare un eseguibile per le piattaforme, per semplificarne l'utilizzo. Ad ogni modo, verrà trattato alla fine come configurare i singoli dispositivi per l'utilizzo diretto del sorgente (in pratica, i passaggi **1** e **3** della configurazione).
+
 #### Piattaforma Windows 
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
@@ -122,10 +132,9 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
 
 
 
-## S2S?
-Si tratta di un'applicativo simile, ma molto più semplice, per l'invio di materiale dai docenti
-alla cartella drive del corso. Può essere un'alternativa valida per sostituire il "A chi mando il file via mail? 
-Poi lo fa avere ai suoi colleghi?"
-Per la configurazione, seguire le stesse istruzioni di cui sopra, ma con le seguenti differenze:
-- La cartella DRIVE deve essere unica, non è possibile effettuare una selezione multipla;
-- Il file JSON deve essere rinominato in "credentials.json" e inserito nella cartella principale;
+## To - Do
+- [ ] Inserimento loading image...
+- [ ] Auto acquisizione del Fid dal link
+- [ ] Inserimento pagina SETTING
+- [ ] Caricamento Creds.JSON ed auto acquisizione di indirizzo mail di servizio
+- [ ] Modifica di cartelle dalla pagina SETTING

@@ -25,12 +25,11 @@ with open('./Secure/Valori.JSON') as f:
     data = json.load(f)
 
 
-def preparazione(SBJ): # <--- lui è il problema, non riceve la materia
+def preparazione(SBJ):
     uploader.funzioni.CopiaSbobi()
     uploader.funzioni.Rinomina()
     time.sleep(5)
     invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartella(SBJ), "./Secure/Creds.json")
-    #subject = "Anatomia" porta al funzionamento...
     time.sleep(5)
     delete_all_pdf_files("./TEMP/")
     time.sleep(3)
