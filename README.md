@@ -132,10 +132,6 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 
 
 
-## S2S?
-Si tratta di un'applicativo simile, ma molto più semplice, per l'invio di materiale dai docenti
-alla cartella drive del corso. Può essere un'alternativa valida per sostituire il "A chi mando il file via mail? 
-Poi lo fa avere ai suoi colleghi?"
-Per la configurazione, seguire le stesse istruzioni di cui sopra, ma con le seguenti differenze:
-- La cartella DRIVE deve essere unica, non è possibile effettuare una selezione multipla;
-- Il file JSON deve essere rinominato in "credentials.json" e inserito nella cartella principale;
+## To - Do
+- [] Inserimento loading image...
+- [] Auto acquisizione del Fid dal link
