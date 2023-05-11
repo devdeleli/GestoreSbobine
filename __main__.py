@@ -63,7 +63,6 @@ class TextRedirector:
         self.widget.configure(state="disabled")
 
 
-
 def main():
     # Destroy splash window
     splash_root.destroy()
