@@ -22,7 +22,10 @@ Analizzeremo nel dettaglio ogni punto.
 Per installare python, è sufficiente seguire la [guida ufficiale](https://www.python.org/downloads/).
 È necessario inoltre selezionare l'opzione "Add Python 3.11 to PATH" durante l'installazione.
 Ora, conviene scaricare anche [Visual Studio Code](https://code.visualstudio.com/), che è un editor di testo,
-per la modifica dei file di configurazione, come vedremo tra poco.
+per la modifica dei file di configurazione, come vedremo tra poco. È possibile utilizzare anche altri editor,
+come [PyCharm](https://www.jetbrains.com/it-it/pycharm/) usato da me, dipende dalle vostre preferenze.
+In ogni caso, è necessario che l'editor di testo sia in grado di eseguire codice python, per cui è necessario
+installare l'estensione "Python" (o equivalente) per VSCode (PyCharm ha già tutto incluso).
 
 ![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
@@ -58,10 +61,19 @@ A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
 ```pip install -r requirements.txt```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato
-3. Nel file **./valori.py** modifica i valori in base alle tue esigenze. N.B.: se hai bisogno di sbobinare più insegnamenti, devi mettere mano al codice...
+3. Nel file **./valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+N.B.: se hai bisogno di sbobinare più insegnamenti, devi mettere mano al codice...
 4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
 5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
+
+```json
+{
+    "Materia1_Nome": "Inserisci la materia",
+    "Materia1_Img": "Inserisci il path completo ./Media/immagine.png",
+    "Materia1_Fid": "inserisci l'id della cartella drive",
+}
+```
 
 ### Generazione del file .exe da distribuire
 

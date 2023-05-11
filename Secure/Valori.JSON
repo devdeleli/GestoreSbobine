@@ -1,0 +1,22 @@
+[
+  {
+    "Materia1_Nome": "Inserisci il nome della materia",
+    "Materia1_Img": "Inserisci il percorso dell'immagine",
+    "Materia1_Fid": "Inserisci l'ID della cartella di Google Drive"
+  },
+  {
+    "Materia2_Nome": "Fisiologia",
+    "Materia2_Img": "./Media/Fisiologia.png",
+    "Materia1_Fid": "1_XqHRTtsEF2oYYesdH4lIItCp5J-scY7",
+  },
+  {
+    "Materia3_Nome": "",
+    "Materia3_Img": "",
+    "Materia3_Fid": ""
+  },
+  {
+    "Materia4_Nome": "",
+    "Materia4_Img": "",
+    "Materia4_Fid": ""
+  }
+]
