@@ -107,6 +107,7 @@ def loading():
     Loading = tk.Toplevel()
     Loading.title("Info sul Software")
     Loading.geometry("300x250")
+    Loading.overrideredirect(True)
     center_window(Loading)
     lbl = ImageLabel(Loading)
     lbl.pack()
@@ -226,7 +227,7 @@ def main():
 
     # setup info button
     #info_button = Button(button_frame, text='Info sul Software', command=lambda: apri_finestra())
-    info_button = Button(button_frame, text='Info sul Software', command=lambda: loading())
+    info_button = Button(button_frame, text='Info sul Software', command=lambda: apri_finestra())
 
     info_button.pack(side=LEFT, padx=10)
 
