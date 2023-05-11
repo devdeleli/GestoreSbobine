@@ -59,7 +59,17 @@ Una volta scaricato, estraete il contenuto in una cartella a piacere (per sempli
 Ora, aprite Visual Studio Code e cliccate su "File" - "Apri cartella" e selezionate la cartella appena creata.
 A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
-```pip install -r requirements.txt```
+```pip install -r requirements.txt```. Qualora non dovesse funzionare, è necessario installare singolarmente
+le dipendenze:
+'''shell
+pip install google-api-python-client
+pip install google-auth-httplib2
+pip install pandas
+pip install Pillow
+pip install protobuf
+pip install Requests
+pip install tkcalendar
+'''
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
 3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
@@ -74,7 +84,7 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
 {
     "Materia0_Nome":"Inserisci la materia",
     "Materia0_Img":"Inserisci il path completo ./Media/immagine.png",
-    "Materia0_Fid":"inserisci l'id della cartella drive",
+    "Materia0_Fid":"inserisci l'id della cartella drive"
 },
 {
     "Materia1_Nome":"Non Attivo",
