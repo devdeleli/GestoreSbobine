@@ -61,7 +61,8 @@ A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
 ```pip install -r requirements.txt```. Qualora non dovesse funzionare, è necessario installare singolarmente
 le dipendenze:
-'''shell
+
+```shell
 pip install google-api-python-client
 pip install google-auth-httplib2
 pip install pandas
@@ -69,7 +70,7 @@ pip install Pillow
 pip install protobuf
 pip install Requests
 pip install tkcalendar
-'''
+```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
 3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
