@@ -89,3 +89,7 @@ def apri_finestra():
     info_label.pack(side=TOP, padx=10, pady=50, anchor="center")
     info_label.bind("<Button-1>", lambda e:
                     webbrowser.open_new_tab("https://www.github.com/devdeleli"))
+
+
+
+
