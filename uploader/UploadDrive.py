@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
 from google.oauth2 import service_account
-
+import json
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
@@ -21,6 +21,9 @@ from __main__ import *
 from uploader import invio
 
 
+with open('./Secure/Valori.JSON') as f:
+    data = json.load(f)
+
 
 def preparazione():
     uploader.funzioni.CopiaSbobi()
@@ -36,10 +39,14 @@ def preparazione():
 
 def SelettoreCartella(materia:str): #non passa correttiamente la variabile. correggere
     folder_id = ""
-    if materia == "Anatomia":
-        folder_id = "1biJ5Rvxf35mYOHenhRpFPsgMi4cWWUKl"
-    elif materia == "Fisiologia":
-        folder_id = "1_XqHRTtsEF2oYYesdH4lIItCp5J-scY7"
+    if materia == data[0]["Materia0_Nome"]:
+        folder_id = data[0]["Materia0_Fid"]
+    elif materia == data[1]["Materia1_Nome"]:
+        folder_id = data[1]["Materia1_Fid"]
+    elif materia == data[2]["Materia2_Nome"]:
+        folder_id = data[2]["Materia2_Fid"]
+    elif materia == data[3]["Materia3_Nome"]:
+        folder_id = data[3]["Materia3_Fid"]
     else:
         print("ERROR!!!")
     return folder_id

@@ -60,18 +60,26 @@ Ora, aprite Visual Studio Code e cliccate su "File" - "Apri cartella" e selezion
 A questo punto, entriamo nel vivo della configurazione:
 1. Installiamo le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
 ```pip install -r requirements.txt```
-2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.json**;
-3. Nel file **./valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
-N.B.: se hai bisogno di sbobinare più insegnamenti, devi mettere mano al codice...
+2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
+3. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+N.B.: se hai bisogno di sbobinare più di 4 insegnamenti, devi mettere mano al codice...
 4. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
 5. Se tutto funziona correttamente, puoi generare il file da distribuire, seguendo le istruzioni di seguito.
 
+#### Modifica del file Valori.JSON
+Puoi modificare i valori come segue, avendo cura, qualora non dovessi utilizzare tutti i pulsanti, di
+NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'esempio di "Materia1":
 ```json
 {
-    "Materia1_Nome": "Inserisci la materia",
-    "Materia1_Img": "Inserisci il path completo ./Media/immagine.png",
-    "Materia1_Fid": "inserisci l'id della cartella drive",
+    "Materia0_Nome":"Inserisci la materia",
+    "Materia0_Img":"Inserisci il path completo ./Media/immagine.png",
+    "Materia0_Fid":"inserisci l'id della cartella drive",
+},
+{
+    "Materia1_Nome":"NULL",
+    "Materia1_Img":"./Media/NULL.png",
+    "Materia1_Fid":"NULL"
 }
 ```
 
