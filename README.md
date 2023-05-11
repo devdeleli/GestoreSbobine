@@ -133,5 +133,5 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 
 
 ## To - Do
-- [] Inserimento loading image...
-- [] Auto acquisizione del Fid dal link
+- [ ] Inserimento loading image...
+- [ ] Auto acquisizione del Fid dal link
