@@ -94,10 +94,21 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
 }
 ```
 
-### Generazione del file .exe da distribuire
-
+### Generazione dei file da distribuire ai colleghi
+#### Piattaforma Windows 
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
+
+#### Piattaforma Linux
+![Distro Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+
+#### Piattaforma MacOS
+![MacOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
+
+
+#### Piattaforma ChromeOS
+![ChromeOS](https://img.shields.io/badge/Chrome%20OS-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
 
 
 ## Utilizzo
