@@ -80,44 +80,44 @@ def main():
     top_frame.pack(side=TOP, pady=10)
 
     # setup image and button for "Materia1"
-    Materia1 = Image.open('./Media/Anatomia.png')
+    Materia1 = Image.open(data[0]["Materia0_Img"])
     Materia1 = Materia1.resize((100, 100))
     Materia1 = ImageTk.PhotoImage(Materia1)
 
-    Materia1_button = Button(top_frame, image=Materia1, text='Anatomia', compound='bottom', width=100,
-                             command=lambda: set_materia("Anatomia", materia_label))
+    Materia1_button = Button(top_frame, image=Materia1, text=data[0]["Materia0_Nome"], compound='bottom', width=100,
+                             command=lambda: set_materia(data[0]["Materia0_Nome"], materia_label))
     Materia1_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia2"
-    Materia2 = Image.open('./Media/Fisiologia.png')
+    Materia2 = Image.open(data[1]["Materia1_Img"])
     Materia2 = Materia2.resize((100, 100))
     Materia2 = ImageTk.PhotoImage(Materia2)
 
-    Materia2_button = Button(top_frame, image=Materia2, text='Fisiologia', compound='bottom', width=100,
-                             command=lambda: set_materia("Fisiologia", materia_label))
+    Materia2_button = Button(top_frame, image=Materia2, text=data[1]["Materia1_Nome"], compound='bottom', width=100,
+                             command=lambda: set_materia(data[1]["Materia1_Nome"], materia_label))
     Materia2_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia3"
-    Materia3 = Image.open('./Media/Fisiologia.png')
+    Materia3 = Image.open(data[2]["Materia2_Img"])
     Materia3 = Materia3.resize((100, 100))
     Materia3 = ImageTk.PhotoImage(Materia3)
 
-    Materia3_button = Button(top_frame, image=Materia3, text='Chimica', compound='bottom', width=100,
-                             command=lambda: set_materia("Chimica", materia_label))
+    Materia3_button = Button(top_frame, image=Materia3, text=data[2]["Materia2_Nome"], compound='bottom', width=100,
+                             command=lambda: set_materia(data[2]["Materia2_Nome"], materia_label))
     Materia3_button.grid(row=1, column=2, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia4"
-    Materia4 = Image.open('./Media/Anatomia.png')
+    Materia4 = Image.open(data[3]["Materia3_Img"])
     Materia4 = Materia4.resize((100, 100))
     Materia4 = ImageTk.PhotoImage(Materia4)
 
-    Materia4_button = Button(top_frame, image=Materia4, text='Biologia', compound='bottom', width=100,
-                             command=lambda: set_materia("Biologia", materia_label))
+    Materia4_button = Button(top_frame, image=Materia4, text=data[3]["Materia3_Nome"], compound='bottom', width=100,
+                             command=lambda: set_materia(data[3]["Materia3_Nome"], materia_label))
     Materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
 
     materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
-test
+
     # setup middle frame
     middle_frame = Frame(root)
     middle_frame.pack(side=TOP, pady=10)
