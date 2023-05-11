@@ -25,18 +25,18 @@ with open('./Secure/Valori.JSON') as f:
     data = json.load(f)
 
 
-def preparazione(SBJ):
+def esegui_upload(SBJ):
     uploader.funzioni.CopiaSbobi()
     uploader.funzioni.Rinomina()
     time.sleep(5)
-    invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartella(SBJ), "./Secure/Creds.json")
+    invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartellaDrive(SBJ), "./Secure/Creds.json")
     time.sleep(5)
     delete_all_pdf_files("./TEMP/")
     time.sleep(3)
     print("La sbobina è stata correttamente caricata")
 
 
-def SelettoreCartella(subject:str):
+def SelettoreCartellaDrive(subject:str):
     '''
     Questa funzione permette di selezionare la cartella in cui caricare il file
     :param subject: Indica la materia della sbobina

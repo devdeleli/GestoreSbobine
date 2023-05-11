@@ -1,7 +1,7 @@
 import __main__
 import uploader.UploadDrive
 from uploader.UploadDrive import *
-from uploader.UploadDrive import preparazione
+from uploader.UploadDrive import esegui_upload
 from uploader.funzioni import *
 import sys
 import json
@@ -168,7 +168,7 @@ def main():
     button_frame.pack(side=TOP, pady=10)
 
     # setup submit button
-    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione(materia_label))
+    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: esegui_upload(materia_label))
     #Il problema sta qui, non passa correttamente la variabile materia.
     #Se la passo come "Anatomia" o "Fisiologia" ottengo il risultato desiderato
     submit_button.pack(side=LEFT, padx=10)

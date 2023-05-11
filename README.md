@@ -128,7 +128,7 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 
 ## Contribuire
 Per contribuire al progetto, è necessario seguire le seguenti istruzioni:
-1. Forkare il progetto;
+1. Eseguire il fork del progetto;
 2. Creare un branch con il proprio nome;
 3. Effettuare le modifiche;
 4. Creare una pull request.
