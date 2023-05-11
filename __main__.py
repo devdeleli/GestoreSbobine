@@ -5,7 +5,6 @@ from uploader.funzioni import *
 import sys
 import json
 from tkinter.scrolledtext import ScrolledText
-import webbrowser
 
 global nome_file
 numero_entry = ""
@@ -16,19 +15,16 @@ nuovo_nome = ""
 
 
 # Define variables
-global materia
 materia = 'Nessuna'
 dataselezionata = ''
 testo_libero = ''
 file_selezionato = ''
 folder_id = ""
 
-
 ##########
 with open('./Secure/Valori.JSON') as f:
     data = json.load(f)
 ##########
-
 
 # Create the splash screen window
 splash_root = Tk()
@@ -51,6 +47,7 @@ img = PhotoImage(file="./Media/Splash.png")
 # Create a label with the image
 splash_label = Label(splash_root, image=img)
 splash_label.pack()
+
 
 class TextRedirector:
     def __init__(self, widget, tag="stdout"):
@@ -80,40 +77,40 @@ def main():
     top_frame.pack(side=TOP, pady=10)
 
     # setup image and button for "Materia1"
-    Materia1 = Image.open(data[0]["Materia0_Img"])
-    Materia1 = Materia1.resize((100, 100))
-    Materia1 = ImageTk.PhotoImage(Materia1)
+    materia1 = Image.open(data[0]["Materia0_Img"])
+    materia1 = materia1.resize((100, 100))
+    materia1 = ImageTk.PhotoImage(materia1)
 
-    Materia1_button = Button(top_frame, image=Materia1, text=data[0]["Materia0_Nome"], compound='bottom', width=100,
+    materia1_button = Button(top_frame, image=materia1, text=data[0]["Materia0_Nome"], compound='bottom', width=100,
                              command=lambda: set_materia(data[0]["Materia0_Nome"], materia_label))
-    Materia1_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
+    materia1_button.grid(row=1, column=0, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia2"
-    Materia2 = Image.open(data[1]["Materia1_Img"])
-    Materia2 = Materia2.resize((100, 100))
-    Materia2 = ImageTk.PhotoImage(Materia2)
+    materia2 = Image.open(data[1]["Materia1_Img"])
+    materia2 = materia2.resize((100, 100))
+    materia2 = ImageTk.PhotoImage(materia2)
 
-    Materia2_button = Button(top_frame, image=Materia2, text=data[1]["Materia1_Nome"], compound='bottom', width=100,
+    materia2_button = Button(top_frame, image=materia2, text=data[1]["Materia1_Nome"], compound='bottom', width=100,
                              command=lambda: set_materia(data[1]["Materia1_Nome"], materia_label))
-    Materia2_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
+    materia2_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia3"
-    Materia3 = Image.open(data[2]["Materia2_Img"])
-    Materia3 = Materia3.resize((100, 100))
-    Materia3 = ImageTk.PhotoImage(Materia3)
+    materia3 = Image.open(data[2]["Materia2_Img"])
+    materia3 = materia3.resize((100, 100))
+    materia3 = ImageTk.PhotoImage(materia3)
 
-    Materia3_button = Button(top_frame, image=Materia3, text=data[2]["Materia2_Nome"], compound='bottom', width=100,
+    materia3_button = Button(top_frame, image=materia3, text=data[2]["Materia2_Nome"], compound='bottom', width=100,
                              command=lambda: set_materia(data[2]["Materia2_Nome"], materia_label))
-    Materia3_button.grid(row=1, column=2, padx=10, pady=10, sticky=W)
+    materia3_button.grid(row=1, column=2, padx=10, pady=10, sticky=W)
 
     # setup image and button for "Materia4"
-    Materia4 = Image.open(data[3]["Materia3_Img"])
-    Materia4 = Materia4.resize((100, 100))
-    Materia4 = ImageTk.PhotoImage(Materia4)
+    materia4 = Image.open(data[3]["Materia3_Img"])
+    materia4 = materia4.resize((100, 100))
+    materia4 = ImageTk.PhotoImage(materia4)
 
-    Materia4_button = Button(top_frame, image=Materia4, text=data[3]["Materia3_Nome"], compound='bottom', width=100,
+    materia4_button = Button(top_frame, image=materia4, text=data[3]["Materia3_Nome"], compound='bottom', width=100,
                              command=lambda: set_materia(data[3]["Materia3_Nome"], materia_label))
-    Materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
+    materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
 
     materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
@@ -193,23 +190,17 @@ def main():
     output_text.pack(side=TOP, padx=10, pady=5)
     output_text.see(END)
 
-
-
     # redirect stdout to the Text widget
     sys.stdout = TextRedirector(output_text, "stdout")
 
     # redirect stderr to the Text widget
     sys.stderr = TextRedirector(output_text, "stderr")
 
-
     # start main loop
     root.mainloop()
 
-
-
-
 # Set interval
-splash_root.after(500, main) #tempo in millisecondi di splash screen
+splash_root.after(500, main)  #tempo in millisecondi di splash screen
 
 # Execute tkinter
 mainloop()
