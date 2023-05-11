@@ -94,7 +94,7 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
 }
 ```
 Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, copiare l'ultima parte dell'url. Per esempio, se l'URL è:
-https://drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
+drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
 
 ### Generazione dei file da distribuire ai colleghi
 #### Piattaforma Windows 
