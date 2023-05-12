@@ -12,7 +12,6 @@ from tkinter import filedialog
 import shutil
 import requests
 import csv
-import pandas as pd
 import os
 
 import __main__
@@ -58,6 +57,7 @@ def SelettoreCartellaDrive(subject:str):
     else:
         print("ERROR!!!")
     return folder_id
+
 
 def select_pdf_file(directory):
     '''
