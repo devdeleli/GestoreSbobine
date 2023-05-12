@@ -42,16 +42,18 @@ def SelettoreCartellaDrive(subject:str):
     :param subject: Indica la materia della sbobina
     :return:
     '''
+    SubjectLabel = subject.cget("text")
+    subject_rec = SubjectLabel.split(": ", 1)[1]
     with open(os.path.abspath('Secure/Valori.JSON')) as f:
         data = json.load(f)
     folder_id = ""
-    if subject == data[0]["Materia0_Nome"]:
+    if subject_rec == data[0]["Materia0_Nome"]:
         folder_id = data[0]["Materia0_Fid"]
-    elif subject == data[1]["Materia1_Nome"]:
+    elif subject_rec == data[1]["Materia1_Nome"]:
         folder_id = data[1]["Materia1_Fid"]
-    elif subject == data[2]["Materia2_Nome"]:
+    elif subject_rec == data[2]["Materia2_Nome"]:
         folder_id = data[2]["Materia2_Fid"]
-    elif subject == data[3]["Materia3_Nome"]:
+    elif subject_rec == data[3]["Materia3_Nome"]:
         folder_id = data[3]["Materia3_Fid"]
     else:
         print("ERROR!!!")
