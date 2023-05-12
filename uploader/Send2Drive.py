@@ -12,7 +12,6 @@ from tkinter import filedialog
 import shutil
 import requests
 import csv
-import pandas as pd
 import os
 
 import __main__

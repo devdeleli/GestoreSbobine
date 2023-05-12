@@ -1,4 +1,4 @@
-import __main__
+import  __main__
 import uploader.Send2Drive
 from uploader.Send2Drive import *
 from uploader.Send2Drive import esegui_upload
