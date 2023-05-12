@@ -3,7 +3,7 @@ from PIL import Image, ImageTk
 import tkinter as tk
 from tkinter import filedialog
 from tkcalendar import *
-from uploader.UploadDrive import *
+from uploader.Send2Drive import *
 from uploader.funzioni import *
 import webbrowser
 import os

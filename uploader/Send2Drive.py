@@ -59,6 +59,7 @@ def SelettoreCartellaDrive(subject:str):
         print("ERROR!!!")
     return folder_id
 
+
 def select_pdf_file(directory):
     '''
     Questa funzione permette di selezionare il file pdf da caricare (supponendo che sia solo uno)
