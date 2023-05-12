@@ -77,14 +77,19 @@ def Rinomina():
     os.rename(old_name, new_name)
 
 def apri_finestra():
-    finestra = tk.Toplevel()
-    finestra.title("Info sul Software")
-    finestra.geometry("500x250")
+    InfoSoftware = tk.Toplevel()
+    InfoSoftware.title("Info sul Software")
+    InfoSoftware.geometry("500x250")
+    center_window(InfoSoftware)
 
-    info_label = Label(finestra, text="Lecture Transcript Online Update System \n "
+    info_label = Label(InfoSoftware, text="Lecture Transcript Online Update System \n "
                                       "Developed by DEVDELELI: \n "
                                       "https://www.github.com/devdeleli",
                        anchor=CENTER, font=("Helvetica", 12))
     info_label.pack(side=TOP, padx=10, pady=50, anchor="center")
     info_label.bind("<Button-1>", lambda e:
                     webbrowser.open_new_tab("https://www.github.com/devdeleli"))
+
+
+
+

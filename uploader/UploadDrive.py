@@ -25,33 +25,35 @@ with open('./Secure/Valori.JSON') as f:
     data = json.load(f)
 
 
-def preparazione(SBJ):
+def esegui_upload(SBJ):
     uploader.funzioni.CopiaSbobi()
     uploader.funzioni.Rinomina()
     time.sleep(5)
-    invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartella(SBJ), "./Secure/Creds.json")
+    invio.upload_file(select_pdf_file("./TEMP/"), SelettoreCartellaDrive(SBJ), "./Secure/Creds.json")
     time.sleep(5)
     delete_all_pdf_files("./TEMP/")
     time.sleep(3)
     print("La sbobina è stata correttamente caricata")
 
 
-def SelettoreCartella(subject:str):
+def SelettoreCartellaDrive(subject:str):
     '''
     Questa funzione permette di selezionare la cartella in cui caricare il file
     :param subject: Indica la materia della sbobina
     :return:
     '''
+    SubjectLabel = subject.cget("text")
+    subject_rec = SubjectLabel.split(": ", 1)[1]
     with open(os.path.abspath('Secure/Valori.JSON')) as f:
         data = json.load(f)
     folder_id = ""
-    if subject == data[0]["Materia0_Nome"]:
+    if subject_rec == data[0]["Materia0_Nome"]:
         folder_id = data[0]["Materia0_Fid"]
-    elif subject == data[1]["Materia1_Nome"]:
+    elif subject_rec == data[1]["Materia1_Nome"]:
         folder_id = data[1]["Materia1_Fid"]
-    elif subject == data[2]["Materia2_Nome"]:
+    elif subject_rec == data[2]["Materia2_Nome"]:
         folder_id = data[2]["Materia2_Fid"]
-    elif subject == data[3]["Materia3_Nome"]:
+    elif subject_rec == data[3]["Materia3_Nome"]:
         folder_id = data[3]["Materia3_Fid"]
     else:
         print("ERROR!!!")

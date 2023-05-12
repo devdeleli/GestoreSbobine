@@ -1,10 +1,12 @@
 import __main__
+import uploader.UploadDrive
 from uploader.UploadDrive import *
-from uploader.UploadDrive import preparazione
+from uploader.UploadDrive import esegui_upload
 from uploader.funzioni import *
 import sys
 import json
 from tkinter.scrolledtext import ScrolledText
+from itertools import count, cycle
 
 global nome_file
 numero_entry = ""
@@ -15,6 +17,7 @@ nuovo_nome = ""
 
 
 # Define variables
+
 materia = 'Nessuna'
 dataselezionata = ''
 testo_libero = ''
@@ -58,6 +61,57 @@ class TextRedirector:
         self.widget.configure(state="normal")
         self.widget.insert("end", str, (self.tag,))
         self.widget.configure(state="disabled")
+
+
+class ImageLabel(tk.Label):
+    """
+    A Label that displays images, and plays them if they are gifs
+    :im: A PIL Image instance or a string filename
+    """
+    def load(self, im):
+        if isinstance(im, str):
+            im = Image.open(im)
+        frames = []
+
+        try:
+            for i in count(1):
+                frames.append(ImageTk.PhotoImage(im.copy()))
+                im.seek(i)
+        except EOFError:
+            pass
+        self.frames = cycle(frames)
+
+        try:
+            self.delay = im.info['duration']
+        except:
+            self.delay = 100
+
+        if len(frames) == 1:
+            self.config(image=next(self.frames))
+        else:
+            self.next_frame()
+
+    def unload(self):
+        self.config(image=None)
+        self.frames = None
+
+    def next_frame(self):
+        if self.frames:
+            self.config(image=next(self.frames))
+            self.after(self.delay, self.next_frame)
+
+def loading():
+    '''
+    Questa funzione mostra una finestra di caricamento
+    '''
+    Loading = tk.Toplevel()
+    Loading.title("Info sul Software")
+    Loading.geometry("300x250")
+    Loading.overrideredirect(True)
+    center_window(Loading)
+    lbl = ImageLabel(Loading)
+    lbl.pack()
+    lbl.load('./Media/loading.gif')
 
 
 def main():
@@ -112,7 +166,7 @@ def main():
                              command=lambda: set_materia(data[3]["Materia3_Nome"], materia_label))
     materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
 
-    materia_label = Label(top_frame, text=f'Materia Selezionata: {materia}')
+    materia_label = Label(top_frame, text=f'Materia Selezionata: {__main__.materia}')
     materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
 
     # setup middle frame
@@ -166,13 +220,15 @@ def main():
     button_frame.pack(side=TOP, pady=10)
 
     # setup submit button
-    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: preparazione("Fisiologia"))
+    submit_button = Button(button_frame, text='Invia la Sbobina', command=lambda: esegui_upload(materia_label))
     #Il problema sta qui, non passa correttamente la variabile materia.
     #Se la passo come "Anatomia" o "Fisiologia" ottengo il risultato desiderato
     submit_button.pack(side=LEFT, padx=10)
 
     # setup info button
+    #info_button = Button(button_frame, text='Info sul Software', command=lambda: apri_finestra())
     info_button = Button(button_frame, text='Info sul Software', command=lambda: apri_finestra())
+
     info_button.pack(side=LEFT, padx=10)
 
     # position button frame in center

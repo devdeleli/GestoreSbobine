@@ -17,18 +17,21 @@ La configurazione è divisa in quattro parti:
 - Generazione del file .exe da distribuire
 
 Analizzeremo nel dettaglio ogni punto.
+Qualora fosse necessario richiedere assistenza, collegarsi su GitHub e aprire una issue, 
+assegnando come tag "help wanted". Assicurarsi di dettagliare nel modo migliore possibile 
+il problema riscontrato o la richiesta di aiuto, allegando eventuali screenshot.
 
 ### Installazione di Python
 Per installare python, è sufficiente seguire la [guida ufficiale](https://www.python.org/downloads/).
 È necessario inoltre selezionare l'opzione "Add Python 3.11 to PATH" durante l'installazione.
 Ora, conviene scaricare anche [Visual Studio Code](https://code.visualstudio.com/), che è un editor di testo,
 per la modifica dei file di configurazione, come vedremo tra poco. È possibile utilizzare anche altri editor,
-come [PyCharm](https://www.jetbrains.com/it-it/pycharm/) usato da me, dipende dalle vostre preferenze.
+come [PyCharm](https://www.jetbrains.com/pycharm/) usato da me, dipende dalle vostre preferenze.
 In ogni caso, è necessario che l'editor di testo sia in grado di eseguire codice python, per cui è necessario
 installare l'estensione "Python" (o equivalente) per VSCode (PyCharm ha già tutto incluso).
 
-![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+[![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)](https://www.jetbrains.com/pycharm/)
+[![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
 
 ### Genesi dei file necessari al funzionamento del software
@@ -73,7 +76,7 @@ pip install tkcalendar
 ```
 2. Copiamo nella cartella **./Secure/** il file JSON contenente le credenziali del servizio appena creato, e rinominiamolo in **Creds.JSON**;
 3. Nella cartella **./Media/** carica le icone in formato PNG riguardanti le materie da sbobinare;
-4. Nel file **./Secure/Valori.JSON** modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
+4. Rinomina il file **./Secure/ValoriBAK.JSON** in **./Secure/Valori.JSON** e modifica i valori in base alle tue esigenze, come mostrato nello snippet sottostante.
 N.B.: allo stato attuale NON è possibile inserire in app più di 4 materie.
 5. Esegui un caricamento di prova, per assicurarti che tutto funzioni correttamente. Puoi avviare l'applicazione 
 facendo click con il tasto destro su **./__main__.py**;
@@ -94,8 +97,10 @@ NON eliminare i valori non utilizzati, ma di impostare i campi come visto nell'e
     "Materia1_Fid":"NULL"
 }
 ```
-Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, copiare l'ultima parte dell'url. Per esempio, se l'URL è:
-drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
+Per quanto riguarda il Fid (Folder ID) può essere estratto nel seguente modo: vedendo il link che si trova
+nella barra di ricerca del browser, estraiamo l'ultima stringa (drive.google.com/drive/folders/{Folder_ID}).
+In pratica, recandosi su Google Drive e selezionando la cartella condivisa contenente le sbobine, 
+copiare l'ultima parte dell'url. Per esempio, se l'URL è: drive.google.com/drive/folders/ABCDEF, l'ID è ABCDEF.
 
 ### Generazione dei file da distribuire ai colleghi
 
@@ -121,14 +126,23 @@ La prima strada, sebbene garantisca il corretto funzionamento nella totalità de
 ![ChromeOS](https://img.shields.io/badge/Chrome%20OS-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
 
 
+## Utilizzo diretto del file OPS.exe
+**Futura implementazione...**
+
+
 ## Utilizzo
 
 
-## Suggerimenti? Bug? Problemi?
-
+## Contribuire
+Per contribuire al progetto, è necessario seguire le seguenti istruzioni:
+1. Eseguire il fork del progetto;
+2. Creare un branch con il proprio nome;
+3. Effettuare le modifiche;
+4. Creare una pull request;
+5. Attendere la revisione;
+6. Se approvata, verrà effettuato il merge.
 
 ## Licenza
-
 
 
 
