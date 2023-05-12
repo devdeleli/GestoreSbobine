@@ -50,10 +50,6 @@ def SelettoreCartellaDrive(subject:str):
         folder_id = data[0]["Materia0_Fid"]
     elif subject_rec == data[1]["Materia1_Nome"]:
         folder_id = data[1]["Materia1_Fid"]
-    elif subject_rec == data[2]["Materia2_Nome"]:
-        folder_id = data[2]["Materia2_Fid"]
-    elif subject_rec == data[3]["Materia3_Nome"]:
-        folder_id = data[3]["Materia3_Fid"]
     else:
         print("ERROR!!!")
     return folder_id

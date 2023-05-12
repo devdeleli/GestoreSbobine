@@ -1,0 +1,5 @@
+python -m nuitka --onefile --windows-disable-console --include-data-dir=C:\Users\MECS\PycharmProjects\GestoreSbobine\Media=.
+/Media --include-data-dir=C:\Users\MECS\PycharmProjects\GestoreSbobine\Secure=./Secure --include-data-dir=C:\Users\MECS\PycharmProjects\GestoreSbobine\TEMP=./TEMP --include-data-di
+r=C:\Users\MECS\PycharmProjects\GestoreSbobine\uploader=./uploader --enable-plugin=tk-inter --include-data-file=C:\Users\MECS\PycharmProjects\GestoreSbobine\Secure\Creds.json=./Sec
+ure/Creds.json --include-data-file=C:\Users\MECS\PycharmProjects\GestoreSbobine\Secure\Valori.JSON=./Secure/Valori.JSON --include-plugin-directory=C:\Users\MECS\PycharmProjects\Ges
+toreSbobine\uploader __main__.py

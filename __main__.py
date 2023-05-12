@@ -87,26 +87,6 @@ def main():
                              command=lambda: set_materia(data[1]["Materia1_Nome"], materia_label))
     materia2_button.grid(row=1, column=1, padx=10, pady=10, sticky=W)
 
-    # setup image and button for "Materia3"
-    materia3 = Image.open(data[2]["Materia2_Img"])
-    materia3 = materia3.resize((100, 100))
-    materia3 = ImageTk.PhotoImage(materia3)
-
-    materia3_button = Button(top_frame, image=materia3, text=data[2]["Materia2_Nome"], compound='bottom', width=100,
-                             command=lambda: set_materia(data[2]["Materia2_Nome"], materia_label))
-    materia3_button.grid(row=1, column=2, padx=10, pady=10, sticky=W)
-
-    # setup image and button for "Materia4"
-    materia4 = Image.open(data[3]["Materia3_Img"])
-    materia4 = materia4.resize((100, 100))
-    materia4 = ImageTk.PhotoImage(materia4)
-
-    materia4_button = Button(top_frame, image=materia4, text=data[3]["Materia3_Nome"], compound='bottom', width=100,
-                             command=lambda: set_materia(data[3]["Materia3_Nome"], materia_label))
-    materia4_button.grid(row=1, column=3, padx=10, pady=10, sticky=W)
-
-    materia_label = Label(top_frame, text=f'Materia Selezionata: {__main__.materia}')
-    materia_label.grid(row=2, column=0, columnspan=4, padx=10, pady=10, sticky=W)
 
     # setup middle frame
     middle_frame = Frame(root)
