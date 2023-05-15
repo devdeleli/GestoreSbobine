@@ -1,4 +1,4 @@
-python -m nuitka --standalone --follow-imports --windows-disable-console --include-data-files=<source>=<target> --include-data-dir="MEDIA"=./Media --include-data-dir="SECURE"=./Secure --include-data-dir="TEMP"=./TEMP --enable-plugin=tk-inter --include-plugin-directory="UPLOADER" "__main__.py"
+python -m nuitka --standalone --follow-imports --windows-disable-console --include-data-dir="MEDIA"=./Media --include-data-dir="SECURE"=./Secure --include-data-dir="TEMP"=./TEMP --enable-plugin=tk-inter --include-plugin-directory="UPLOADER" "__main__.py"
 
 ### HELP
 Sostituire ogni "Placeholder" con la corrispettiva cartella, rimuovendo le virgolette.
