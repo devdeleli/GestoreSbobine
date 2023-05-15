@@ -8,6 +8,12 @@ import json
 from tkinter.scrolledtext import ScrolledText
 from itertools import count, cycle
 from uploader.Classes import *
+from google.oauth2 import service_account
+from google.oauth2.service_account import Credentials
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaFileUpload
 
 global nome_file
 numero_entry = ""

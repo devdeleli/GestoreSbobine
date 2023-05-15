@@ -68,6 +68,10 @@ le dipendenze:
 ```shell
 pip install google-api-python-client
 pip install google-auth-httplib2
+pip install google-auth-oauthlib
+pip install google-auth
+pip install google-api-core
+pip install googleapis-common-protos
 pip install pandas
 pip install Pillow
 pip install protobuf
@@ -108,29 +112,57 @@ Le strade sono principalmente due:
 1. Distribuzione del sorgente modificato;
 2. Compilazione in eseguibile.
 
-La prima strada, sebbene garantisca il corretto funzionamento nella totalità dei casi, risulta più complessa, in quanto è necessario installare Python e relative dipendenze del software in ogni dispositivo su cui verrà utilizzato il GestoreSbobine. Cercheremo quindi di generare un eseguibile per le piattaforme, per semplificarne l'utilizzo. Ad ogni modo, verrà trattato alla fine come configurare i singoli dispositivi per l'utilizzo diretto del sorgente (in pratica, i passaggi **1** e **3** della configurazione).
+La prima strada, sebbene garantisca il corretto funzionamento nella totalità dei casi, risulta più complessa,
+in quanto è necessario installare Python e relative dipendenze del software in ogni dispositivo su cui verrà 
+utilizzato il GestoreSbobine. Cercheremo quindi di generare un eseguibile per le piattaforme, per semplificarne 
+l'utilizzo. Ad ogni modo, verrà trattato alla fine come configurare i singoli dispositivi per l'utilizzo diretto 
+del sorgente (in pratica, i passaggi **1** e **3** della configurazione).
 
 #### Piattaforma Windows 
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+Allo stato attuale dei fatti (e delle mie conoscenze) risulta possibile elaborare solamente un file
+eseguibile per la piattaforma Windows. Per farlo, è necessario installare il plugin Nuitka, che
+permette di compilare il sorgente in un eseguibile, e "winrar", seguendo poi una serie di passaggi, qui
+spiegati passo - passo:
+1. **FASE PRELIMINARE**: aprire il menù start e cercare "Python". Si aprirà una schermata simile al prompt dei comandi,
+con scritto in alto "Python 3.XX;
+2. Digitare il seguente comando: ```import googleapiclient``` e premere invio; 
+3. Digitare ora ```print(googleapiclient.__file__)``` e premere invio. Comparirà una lunga stringa di testo: copiala;
+4. Incollare la stringa appena copiata all'interno di esplora file, rimuovendo la parte terminale "googleapiclient/__init__.py";
+5. Copiare la cartella "googleapiclient" sul desktop, aprendola al termine;
+6. Eliminare tutti i file e le cartelle presenti, ad eccezione di "discovery_cache", "_auth.py", "_helpers.py" e "discovery.py";
+7. Recarsi nella cartella "discovery_cache" ed eliminare tutti i file, ad eccezione di quelli che fanno riferimento a "drive" (sono 5 in tutto);
+8. Aprire il terminale di Visual Studio Code (Ctrl + Shift + ù) o di PyCharm e digitare:
+```pip install nuitka```;
+9. Aprire il file "ComandoNuitka.txt" predisposto e modificarlo secondo le indicazioni presenti. In particolare:
+   - Inserire il percorso COMPLETO della cartella "Media";
+   - Inserire il percorso COMPLETO della cartella "Secure";
+   - Inserire il percorso COMPLETO della cartella "TEMP";
+10. Copiare il comando appena modificato ed eseguirlo all'interno della console di Visual Studio Code (Ctrl + Shift + ù);
+11. Se tutto è andato a buon fine, nella cartella "GestoreSbobine" verrà creata una cartella "__main__.dist", contenente
+    il file eseguibile;
+12. Copiare tutta la cartella "googleapiclient" dentro la cartella "__main__.dist";
+13. Aprire la cartella "__main__.dist" e selezionare tutti i file, poi tasto destro, "aggiungi ad un archivio...";
+14. Sotto "Metodo di compressione" selezionare "Migliore", poi spuntare "Crea un archivio auto-estraente";
+15. Recarsi su "Avanzate", selezionare "Modulo auto-estraente", "Installa/Configura" e digitare sotto "Esegui dopo l'estrazione"
+il comando "__main__.exe", senza virgolette;
+16. Sotto "Modalità", selezionare "Estrai in una cartella temporanea", "Nascondi Tutto", mentre sotto "Aggiornamento", "Sovrascrivi tutti i file"
+17. Adesso possiamo premere "OK" ed attendere la generazione del file "EXE", che sarà poi distribuito ai colleghi.
 
+**N.B.: Alcuni antivirus (Kaspersky) possono riportare dei falsi positivi**
 
-#### Piattaforma Linux
-![Distro Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+### Condivisione del sorgente (metodo NON consigliato)
+Per tutti gli altri sistemi operativi, rimane possibile la condivisione del file sorgente appena elaborato.
+Bisogna però preparare i computer all'esecuzione, seguendo i seguenti passaggi:
+1. Installare Python 3.9.6 (o superiore) dal sito ufficiale;
+2. Installare le dipendenze necessarie, aprendo il terminale di Visual Studio Code (Ctrl + Shift + ù) e digitando:
+```pip install -r requirements.txt```. Qualora non dovesse funzionare, è necessario installarle singolarmente
+   (si rimanda al punto **1** della guida per il responsabile);
+3. Importare la cartella contenente il sorgente in Visual Studio Code (o PyCharm), cliccando su "File" - "Apri cartella" e selezionando la cartella appena creata;
+4. Eseguire il file **./__main__.py**.
 
-
-#### Piattaforma MacOS
-![MacOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
-
-
-#### Piattaforma ChromeOS
-![ChromeOS](https://img.shields.io/badge/Chrome%20OS-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)
-
-
-## Utilizzo diretto del file OPS.exe
-**Futura implementazione...**
-
-
-## Utilizzo
+Sono consapevole che ciò non sia la via più rapida o più pratica, ma è l'unica che ho trovato per il momento.
+Qualora qualcuno avesse suggerimenti, sono ben accetti, così come qualsiasi altro tipo di contributo.
 
 
 ## Contribuire
@@ -142,13 +174,9 @@ Per contribuire al progetto, è necessario seguire le seguenti istruzioni:
 5. Attendere la revisione;
 6. Se approvata, verrà effettuato il merge.
 
-## Licenza
-
-
 
 ## To - Do
 - [ ] Inserimento loading image...
-- [ ] Auto acquisizione del Fid dal link
 - [ ] Inserimento pagina SETTING
-- [ ] Caricamento Creds.JSON ed auto acquisizione di indirizzo mail di servizio
+- [ ] Caricamento Creds.JSON
 - [ ] Modifica di cartelle dalla pagina SETTING
