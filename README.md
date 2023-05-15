@@ -124,14 +124,16 @@ Allo stato attuale dei fatti (e delle mie conoscenze) risulta possibile elaborar
 eseguibile per la piattaforma Windows. Per farlo, è necessario installare il plugin Nuitka, che
 permette di compilare il sorgente in un eseguibile, e "winrar", seguendo poi una serie di passaggi, qui
 spiegati passo - passo:
-1. **FASE PRELIMINARE**: aprire il menù start e cercare "Python". Si aprirà una schermata simile al prompt dei comandi,
+**FASE PRELIMINARE**
+1. Aprire il menù start e cercare "Python". Si aprirà una schermata simile al prompt dei comandi,
 con scritto in alto "Python 3.XX;
 2. Digitare il seguente comando: ```import googleapiclient``` e premere invio; 
 3. Digitare ora ```print(googleapiclient.__file__)``` e premere invio. Comparirà una lunga stringa di testo: copiala;
 4. Incollare la stringa appena copiata all'interno di esplora file, rimuovendo la parte terminale "googleapiclient/__init__.py";
 5. Copiare la cartella "googleapiclient" sul desktop, aprendola al termine;
 6. Eliminare tutti i file e le cartelle presenti, ad eccezione di "discovery_cache", "_auth.py", "_helpers.py" e "discovery.py";
-7. Recarsi nella cartella "discovery_cache" ed eliminare tutti i file, ad eccezione di quelli che fanno riferimento a "drive" (sono 5 in tutto);
+7. Recarsi nella cartella "discovery_cache" ed eliminare tutti i file, ad eccezione di quelli che fanno riferimento a "drive" (sono 5 in tutto);ù
+**"Conversione" in EXE**
 8. Aprire il terminale di Visual Studio Code (Ctrl + Shift + ù) o di PyCharm e digitare:
 ```pip install nuitka```;
 9. Aprire il file "ComandoNuitka.txt" predisposto e modificarlo secondo le indicazioni presenti. In particolare:
