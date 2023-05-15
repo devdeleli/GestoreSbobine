@@ -1,0 +1,11 @@
+python -m nuitka --standalone --follow-imports --windows-disable-console --include-data-dir="MEDIA"=./Media --include-data-dir="SECURE"=./Secure --include-data-dir="TEMP"=./TEMP --enable-plugin=tk-inter --include-plugin-directory="UPLOADER" "__main__.py"
+
+### HELP
+Sostituire ogni "Placeholder" con la corrispettiva cartella, rimuovendo le virgolette.
+
+"MEDIA" : path assoluto della cartella media presente in gestore sbobine (Ex: C:\User\DEVDELELI\Desktop\GestoreSbobine\Media)
+"SECURE" : path assoluto della cartella secure presente in gestore sbobine (Ex: C:\User\DEVDELELI\Desktop\GestoreSbobine\Secure)
+"TEMP" : path assoluto della cartella temp presente in gestore sbobine (Ex: C:\User\DEVDELELI\Desktop\GestoreSbobine\TEMP)
+"UPLOADER" : path assoluto della cartella uploader presente in gestore sbobine (Ex: C:\User\DEVDELELI\Desktop\GestoreSbobine\uploader)
+
+
