@@ -2,7 +2,7 @@ google_api_python_client==2.86.0
 pandas==2.0.1
 Pillow==9.5.0
 protobuf==4.23.0
-Requests==2.30.0
+Requests>2.31.0
 tkcalendar==1.6.1
 google-api-python-client
 google-auth-httplib2
